@@ -42,12 +42,6 @@ const socials = [
     href: 'https://wa.me/6285216742345',
     color: '#25D366',
   },
-  /*{
-    icon: <FaFacebook />,
-    label: 'Bakso Condong Raos',
-    href: 'https://facebook.com',
-    color: '#1877F2',
-  },*/
   {
     icon: <FaTiktok />,
     label: '@condongraos_234',
@@ -60,7 +54,7 @@ export default function ContactSection() {
   return (
     <section id="contact" style={{
       padding: '88px 0 72px',
-      background: '#FEF5F5', /* Warna background loncat/solid */
+      background: '#FEF5F5', 
     }}>
       <div style={{ maxWidth: 1200, margin: '0 auto', padding: '0 24px' }}>
         
@@ -115,7 +109,7 @@ export default function ContactSection() {
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(3, 1fr)',
-          gap: 20,
+          gap: 10,
           marginBottom: 48,
         }} className="contact-grid">
           {contactCards.map((card, i) => (
@@ -129,7 +123,7 @@ export default function ContactSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.45, delay: i * 0.1 }}
               whileHover={{ y: -6 }}
-              className="btn-sweep card-contact" /* Memanggil class efek animasi */
+              className="btn-sweep card-contact"
               style={{
                 display: 'flex',
                 flexDirection: 'row',
@@ -142,6 +136,9 @@ export default function ContactSection() {
                 color: 'inherit',
                 boxShadow: '0 4px 20px rgba(0,0,0,0.05)',
                 border: '1px solid #F3F3F3',
+                /* KUNCI RESPONSIVITAS: Memastikan kotak tidak melebar melebihi wadahnya */
+                maxWidth: '100%',
+                overflow: 'hidden',
               }}
             >
               <div 
@@ -155,13 +152,21 @@ export default function ContactSection() {
                   alignItems: 'center',
                   justifyContent: 'center',
                   color: card.color,
-                  flexShrink: 0,
+                  flexShrink: 0, /* Mencegah ikon menyusut saat teks panjang */
                   transition: 'background 0.3s'
                 }}
               >
                 {card.icon}
               </div>
-              <div style={{ display: 'flex', flexDirection: 'column' }}>
+              
+              {/* Bagian ini membungkus teks label dan value */}
+              <div style={{ 
+                display: 'flex', 
+                flexDirection: 'column',
+                /* KUNCI RESPONSIVITAS: Mengizinkan wadah teks untuk mengecil jika perlu */
+                minWidth: 0, 
+                width: '100%'
+              }}>
                 <div className="card-label" style={{
                   fontSize: '0.75rem',
                   fontWeight: 700,
@@ -174,12 +179,19 @@ export default function ContactSection() {
                   {card.label}
                 </div>
                 <div className="card-value" style={{
-                  fontSize: '0.9rem',
+                  /* === UKURAN HURUF OTOMATIS (FLUID) === */
+                  /* Penjelasan: Minimal 0.7rem, Ideal 2.5% lebar layar, Maksimal 0.9rem */
+                  fontSize: 'clamp(0.7rem, 2.5vw, 0.9rem)', 
+                  
                   fontWeight: 600,
                   color: '#1A1A1A',
-                  lineHeight: 1.55,
-                  whiteSpace: 'pre-line',
-                  transition: 'color 0.3s'
+                  lineHeight: 1.4,
+                  transition: 'color 0.3s',
+                  
+                  /* Tetap gunakan ini sebagai pengaman jika teks sangat panjang */
+                  wordBreak: 'break-all', 
+                  overflowWrap: 'break-word',
+                  whiteSpace: 'normal',
                 }}>
                   {card.value}
                 </div>
@@ -227,7 +239,7 @@ export default function ContactSection() {
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05, y: -3 }}
                 whileTap={{ scale: 0.95 }}
-                className="btn-sweep social-btn" /* Memanggil class efek animasi */
+                className="btn-sweep social-btn" 
                 style={{
                   display: 'flex',
                   alignItems: 'center',
@@ -240,6 +252,7 @@ export default function ContactSection() {
                   textDecoration: 'none',
                   fontSize: '0.85rem',
                   fontWeight: 600,
+                  maxWidth: '100%', /* Tambahan aman untuk mobile */
                 }}
               >
                 <span className="social-icon" style={{ 
@@ -256,7 +269,11 @@ export default function ContactSection() {
                   width: '100%', 
                   textAlign: 'center', 
                   marginLeft: '14px',
-                  transition: 'color 0.3s'
+                  transition: 'color 0.3s',
+                  /* Tambahan aman untuk teks sosmed panjang */
+                  whiteSpace: 'nowrap',
+                  overflow: 'hidden',
+                  textOverflow: 'ellipsis'
                 }}>
                   {s.label}
                 </span>
@@ -266,48 +283,36 @@ export default function ContactSection() {
         </motion.div>
       </div>
 
-      {/* === CSS UNTUK ANIMASI SWEEP (SAPUAN) === */}
       <style>{`
-        /* Struktur dasar untuk semua tombol yang punya efek sweep */
         .btn-sweep {
-          position: relative; /* Wajib agar sapuan ada di dalam kotak */
-          overflow: hidden;   /* Menyembunyikan sapuan sebelum di-hover */
-          z-index: 1;         /* Agar teks tetap berada di atas sapuan */
+          position: relative; 
+          overflow: hidden;   
+          z-index: 1;         
           transition: all 0.3s ease;
         }
 
-        /* Efek sapuan melengkung (Ombak) yang bersembunyi di bawah */
         .btn-sweep::before {
           content: '';
           position: absolute;
-          top: 100%; /* Sembunyi di bagian bawah */
-          left: -25%; /* Diperlebar agar lengkungannya mulus sampai ujung */
-          width: 150%; /* Dibuat lebih lebar dari kotak aslinya */
-          height: 200%; /* Jauh lebih tinggi agar akhirnya menutupi penuh kotak */
+          top: 100%; 
+          left: -25%; 
+          width: 150%; 
+          height: 200%; 
           background-color: #8B0000; 
-          
-          /* INI KUNCINYA: Membuat atasnya melengkung, tapi bawahnya rata */
           border-radius: 50% 50% 0 0; 
-          
-          /* Animasi sedikit diperlambat agar lengkungannya terlihat dramatis */
           transition: top 1s cubic-bezier(0.4, 0, 0.2, 1);
           z-index: -1;
         }
 
-        /* Saat di-hover, ombak naik ke atas */
         .btn-sweep:hover::before {
-          /* Naik terus sampai bagian lengkungnya keluar kotak, 
-             menyisakan bagian bawahnya yang padat/rata */
           top: -25%; 
         }
 
-        /* Saat di-hover, bayangan kartu membesar */
         .btn-sweep:hover {
           box-shadow: 0 12px 40px rgba(139,0,0,0.2) !important;
           border-color: #8B0000 !important;
         }
 
-        /* UBAH WARNA TEKS & IKON MENJADI PUTIH SAAT DI-HOVER */
         .btn-sweep:hover .card-label,
         .btn-sweep:hover .card-value,
         .btn-sweep:hover .social-text,
@@ -315,13 +320,11 @@ export default function ContactSection() {
           color: white !important;
         }
 
-        /* Khusus untuk ikon kotak (Alamat, WA, Email), backgroundnya jadi transparan putih saat di-hover */
         .btn-sweep:hover .icon-box {
           background-color: rgba(255, 255, 255, 0.2) !important;
           color: white !important;
         }
 
-        /* Responsif Grid */
         @media (max-width: 768px) {
           .contact-grid {
             grid-template-columns: 1fr !important;
