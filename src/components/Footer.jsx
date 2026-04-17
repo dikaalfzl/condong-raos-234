@@ -19,7 +19,7 @@ export default function Footer() {
         
         {/* GAMBAR LOGO */}
         <img 
-          src="/public/logo_putih.png" /* Pastikan nama file ini sesuai */
+          src="/public/logo_putih.webp" /* Pastikan nama file ini sesuai */
           alt="Logo Bakso Condong Raos" 
           style={{ 
             height: '40px', 
@@ -103,7 +103,7 @@ export default function Footer() {
           }}
         >
           <img 
-            src="/Sosro.svg" 
+            src="/Sosro.webp" 
             alt="Sosro" 
             style={{ 
               height: '80px', 

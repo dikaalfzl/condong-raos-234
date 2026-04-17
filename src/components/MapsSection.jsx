@@ -31,10 +31,10 @@ const info = [
 
 // Pastikan file foto ini sudah Anda simpan di dalam folder "public"
 const locationPhotos = [
-  '/public/foto1.jpeg', 
-  '/public/foto2.jpeg',
-  '/public/foto3.jpeg',
-  '/public/foto4.jpeg'
+  '/public/foto1.webp', 
+  '/public/foto2.webp',
+  '/public/foto3.webp',
+  '/public/foto4.webp'
 ];
 
 export default function MapsSection() {

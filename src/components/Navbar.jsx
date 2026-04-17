@@ -76,7 +76,7 @@ export default function Navbar() {
             }}
           >
             <img 
-              src="/logo_merah.png" 
+              src="/logo_merah.webp" 
               alt="Logo Bakso Condong Raos" 
               style={{ 
                 height: '35px',

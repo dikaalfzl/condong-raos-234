@@ -12,7 +12,7 @@ export const menuItems = [
     name: 'Bakso Asli Solo',
     description: 'Kuah hangat gurih dengan bakso kenyal khas Solo.',
     price: 'Rp 16.000',
-    image: '/public/menu_bakso.png',
+    image: '/public/menu_bakso.webp',
     popular: true,
   },
   {
@@ -21,7 +21,7 @@ export const menuItems = [
     name: 'Mie Ayam Spesial',
     description: 'Mie lembut dengan ayam kecap manis yang meresap.',
     price: 'Rp 12.000',
-    image: '/public/menu_mie.png',
+    image: '/public/menu_mie.webp',
     popular: true,
   },
   {
@@ -30,7 +30,7 @@ export const menuItems = [
     name: 'Mie Ayam Bakso Komplit',
     description: 'Perpaduan mie ayam dan bakso dalam satu sajian nikmat.',
     price: 'Rp 18.000',
-    image: '/public/menu_komplit.png',
+    image: '/public/menu_komplit.webp',
     popular: true,
   },
   {
@@ -39,7 +39,7 @@ export const menuItems = [
     name: 'Es Teh Manis',
     description: 'Minuman teh manis segar dengan rasa ringan dan menyegarkan.',
     price: 'Rp 4.000',
-    image: '/public/estehmanis.png',
+    image: '/public/estehmanis.webp',
     popular: true,
   },
   {
@@ -48,7 +48,7 @@ export const menuItems = [
     name: 'Teh Botol',
     description: 'Teh siap minum dengan rasa khas yang manis dan menyegarkan.',
     price: 'Rp 6.000',
-    image: '/public/tehbotol.png',
+    image: '/public/tehbotol.webp',
     popular: true,
   },
   {
@@ -57,7 +57,7 @@ export const menuItems = [
     name: 'Fruit Tea',
     description: 'Minuman teh buah dengan rasa segar dan aroma fruity yang nikmat.',
     price: 'Rp 6.000',
-    image: '/public/fruittea.png',
+    image: '/public/fruittea.webp',
     popular: false,
   },
   {
@@ -66,7 +66,7 @@ export const menuItems = [
     name: 'S-Tee',
     description: 'Teh siap minum dengan rasa ringan, cocok dinikmati kapan saja.',
     price: 'Rp 6.000',
-    image: '/public/stee.png',
+    image: '/public/stee.webp',
     popular: false,
   },
   {
@@ -75,7 +75,7 @@ export const menuItems = [
     name: 'Prima',
     description: 'Air mineral murni yang segar untuk menemani setiap hidangan.',
     price: 'Rp 4.000',
-    image: '/public/prima.png',
+    image: '/public/prima.webp',
     popular: true,
   },
   {
@@ -84,7 +84,7 @@ export const menuItems = [
     name: 'Kerupuk Putih',
     description: 'Kerupuk renyah ringan dengan tekstur unik dan rasa gurih.',
     price: 'Rp 1.000',
-    image: '/public/kerupuk_putih.png',
+    image: '/public/kerupuk_putih.webp',
     popular: false,
   },
   {
@@ -93,7 +93,7 @@ export const menuItems = [
     name: 'Rambak',
     description: 'Rambak renyah dengan tekstur tebal dan cita rasa gurih.',
     price: 'Rp 1.000',
-    image: '/public/rambak.png',
+    image: '/public/rambak.webp',
     popular: false,
   },
   {
@@ -102,7 +102,7 @@ export const menuItems = [
     name: 'Kerupuk Kulit',
     description: 'Kerupuk kulit yang renyah dengan rasa gurih yang khas.',
     price: 'Rp 3.000',
-    image: '/public/kulit.png',
+    image: '/public/kulit.webp',
     popular: false,
   },
   {
@@ -111,7 +111,7 @@ export const menuItems = [
     name: 'Kacang',
     description: 'Kacang goreng gurih, renyah, dan cocok sebagai pelengkap.',
     price: 'Rp 5.000',
-    image: '/public/kacang.png',
+    image: '/public/kacang.webp',
     popular: false,
   },
 ];
@@ -119,7 +119,7 @@ export const menuItems = [
 export const slides = [
   {
     id: 1,
-    image: '/public/bakso.png',
+    image: '/public/bakso.webp',
     badge: 'Menu Terlaris',
     title: 'Bakso Asli Solo',
     subtitle: 'Disajikan dengan kuah hangat yang gurih, bakso kenyal, dan pelengkap yang menyatu dalam cita rasa khas Solo.',
@@ -127,7 +127,7 @@ export const slides = [
   },
   {
     id: 2,
-    image: '/public/mieayam.png',
+    image: '/public/mieayam.webp',
     badge: 'Menu Terlaris',
     title: 'Mie Ayam\nSpesial',
     subtitle: 'Mie lembut dengan topping ayam kecap manis yang meresap, menghadirkan rasa yang sederhana namun istimewa.',
@@ -135,7 +135,7 @@ export const slides = [
   },
   {
     id: 3,
-    image: '/public/mieayambakso.png',
+    image: '/public/mieayambakso.webp',
     badge: 'Menu Terlaris',
     title: 'Mie Ayam Bakso\nKomplit',
     subtitle: 'Kombinasi mie ayam lembut dan bakso kenyal dalam satu mangkuk, lengkap dengan kuah gurih yang memanjakan lidah.',
