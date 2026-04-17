@@ -19,7 +19,7 @@ export default function Footer() {
         
         {/* GAMBAR LOGO */}
         <img 
-          src="/public/logo_putih.webp" /* Pastikan nama file ini sesuai */
+          src="logo_putih.webp" /* Pastikan nama file ini sesuai */
           alt="Logo Bakso Condong Raos" 
           style={{ 
             height: '40px', 
