@@ -15,6 +15,7 @@ import {
 } from "react-icons/fi";
 import { supabase, isSupabaseConfigured } from "../../lib/supabaseClient";
 import { useAuth } from '../../context/AuthContext';
+import { containsBadWord } from '../../utils/badWords';
 import '../../styles/ProfileModal.css';
 
 const INITIAL_HISTORY_LIMIT = 2;
@@ -43,6 +44,8 @@ export default function ProfileModal({ isOpen, onClose, onProfileUpdated }) {
   const [showAllReviews, setShowAllReviews] = useState(false);
   const [loadingReviews, setLoadingReviews] = useState(false);
 
+  
+
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -62,6 +65,7 @@ export default function ProfileModal({ isOpen, onClose, onProfileUpdated }) {
       "";
     const fallbackAvatar =
       profile?.avatar_url || user?.user_metadata?.avatar_url || null;
+
 
     setFullName(fallbackName);
     setAvatarPreview(fallbackAvatar);
@@ -205,11 +209,38 @@ export default function ProfileModal({ isOpen, onClose, onProfileUpdated }) {
 
   const handleSaveProfile = async (e) => {
     e.preventDefault();
-    if (!fullName.trim()) {
-      showToast("Nama lengkap tidak boleh kosong.", "error");
+
+    const trimmedName = fullName.trim();
+
+    if (!trimmedName) {
+      showToast('Nama profil tidak boleh kosong.', 'error');
       return;
     }
 
+    // VALIDASI KATA KASAR
+    if (containsBadWord(trimmedName)) {
+      showToast('Nama profil mengandung kata yang tidak diizinkan. Mohon gunakan nama yang sopan.', 'error');
+      return; // Batalkan proses simpan ke Supabase
+    }
+
+    setLoading(true);
+    try {
+      const { error } = await supabase
+        .from('profiles')
+        .update({ full_name: trimmedName })
+        .eq('id', user.id);
+
+      if (error) throw error;
+
+      showToast('Profil berhasil diperbarui!', 'success');
+      if (onProfileUpdated) onProfileUpdated();
+      onClose();
+    } catch (err) {
+      showToast(`Gagal memperbarui profil: ${err.message}`, 'error');
+    } finally {
+      setLoading(false);
+    }
+    
     setSaving(true);
     try {
       let finalAvatarUrl =

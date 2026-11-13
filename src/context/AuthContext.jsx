@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useState, useCallback } from 'react';
+import { containsBadWord } from '../utils/badWords';
 import { supabase, isSupabaseConfigured } from '../lib/supabaseClient';
 
 const AuthContext = createContext({});

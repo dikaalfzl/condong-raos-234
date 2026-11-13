@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { FiMail, FiLock, FiUser, FiArrowLeft, FiEye, FiEyeOff } from 'react-icons/fi';
 import { supabase, isSupabaseConfigured } from '../../lib/supabaseClient';
 import { useAuth } from '../../context/AuthContext';
+import { containsBadWord } from '../../utils/badWords'; 
 import '../../styles/AuthModal.css';
 
 export default function AuthModal({ isOpen, mode = 'login', onSwitchMode, onClose }) {
@@ -43,6 +44,10 @@ export default function AuthModal({ isOpen, mode = 'login', onSwitchMode, onClos
           throw new Error('Nama lengkap wajib diisi.');
         }
 
+        if (containsBadWord(fullName.trim())) {
+          throw new Error('Nama lengkap mengandung kata yang tidak diizinkan. Mohon gunakan nama yang sopan.');
+        }
+
         const { data, error } = await supabase.auth.signUp({
           email: cleanEmail,
           password,
@@ -59,7 +64,7 @@ export default function AuthModal({ isOpen, mode = 'login', onSwitchMode, onClos
             full_name: fullName.trim(),
           });
         }
-
+        
         showToast('Pendaftaran berhasil! Selamat datang di Condong Raos 234.', 'success');
         onClose();
       } else {
@@ -84,7 +89,7 @@ export default function AuthModal({ isOpen, mode = 'login', onSwitchMode, onClos
       setLoading(false);
     }
   };
-
+  
   return (
     <div className="auth-fullpage-wrapper">
       {/* TOMBOL KEMBALI KE BERANDA */}
