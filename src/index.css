@@ -157,3 +157,7 @@ button {
     display: none !important;
   }
 }
+/* Menghilangkan kotak sorotan biru saat disentuh di perangkat seluler */
+* {
+  -webkit-tap-highlight-color: transparent;
+}

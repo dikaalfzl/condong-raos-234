@@ -31,6 +31,18 @@ export default function ReviewModal({
   const [comment, setComment] = useState("");
   const [editingReviewId, setEditingReviewId] = useState(null);
   const [submitting, setSubmitting] = useState(false);
+  
+  // --- TAMBAHKAN KODE INI DI SINI ---
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
 
   // State khusus Admin untuk membalas langsung dari modal
   const [openReplyBoxId, setOpenReplyBoxId] = useState(null);
