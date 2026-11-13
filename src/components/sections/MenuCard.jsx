@@ -27,7 +27,7 @@ export default function MenuCard({ item, index, ratingStats, onSelectMenu }) {
       transition={{ duration: 0.45, delay: staggerDelay }}
       whileHover={{ y: -6 }}
       className={`menu-card-sweep ${!isAvailable ? 'menu-sold-out' : ''}`}
-      onClick={() => onSelectMenu && onSelectMenu(item)}
+      
     >
       {/* === LABEL TERLARIS === */}
       {item.popular && (
@@ -78,9 +78,19 @@ export default function MenuCard({ item, index, ratingStats, onSelectMenu }) {
         
         <div className="menu-footer">
           <span className="menu-price">{item.price}</span>
-          <div className="menu-action-btn" title="Lihat & Beri Ulasan">
+
+          {/* ========================================================
+             HANYA TOMBOL INI (💬 Ulas) YANG MEMBUKA MODAL ULASAN
+             ======================================================== */}
+          <button
+            type="button"
+            className="menu-action-btn"
+            onClick={() => {
+              if (onSelectMenu) onSelectMenu(item);
+            }}
+          >
             <span>💬 Ulas</span>
-          </div>
+          </button>
         </div>
       </div>
     </motion.div>
