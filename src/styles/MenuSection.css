@@ -1,0 +1,341 @@
+/* =========================================
+   SECTION UTAMA MENU (TEMA MAROON)
+   ========================================= */
+.menu-section-wrapper {
+  padding: 64px 0 72px;
+  background: #9a1006;
+}
+
+.menu-section-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.menu-section-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.menu-section-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  background: #FFC72C;
+  color: #1A1A1A;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.menu-section-title {
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  font-weight: 900;
+  color: #FFFFFF;
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+
+.menu-section-subtitle {
+  font-size: 0.96rem;
+  color: rgba(255, 255, 255, 0.88);
+  line-height: 1.65;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* =========================================
+   SEARCH BAR & CUSTOM ANIMATED SORT DROPDOWN
+   ========================================= */
+.menu-search-sort-bar {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+
+.menu-search-box {
+  flex: 1;
+  min-width: 260px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: 16px;
+  color: #8B0000;
+  font-size: 18px;
+  pointer-events: none;
+}
+
+.menu-search-input {
+  width: 100%;
+  padding: 13px 40px 13px 44px;
+  border-radius: 16px;
+  border: 2px solid #E8E8E8;
+  background: #FFFFFF;
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1A1A1A;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+}
+
+.menu-search-input:focus {
+  outline: none;
+  border-color: #FFC72C;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+}
+
+.clear-search-btn {
+  position: absolute;
+  right: 12px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #FDEDEC;
+  color: #8B0000;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.clear-search-btn:hover {
+  background: #8B0000;
+  color: #FFFFFF;
+}
+
+/* CUSTOM DROPDOWN URUTAN MENU */
+.custom-sort-container {
+  position: relative;
+  min-width: 265px;
+  z-index: 30;
+}
+
+.custom-sort-trigger {
+  width: 100%;
+  padding: 11px 16px 11px 12px;
+  border-radius: 16px;
+  border: 2px solid #E8E8E8;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.custom-sort-trigger:hover,
+.custom-sort-trigger.open {
+  border-color: #FFC72C;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.16);
+}
+
+.sort-trigger-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sort-trigger-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  background: #FDEDEC;
+  color: #8B0000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  flex-shrink: 0;
+}
+
+.sort-trigger-label {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #1A1A1A;
+  white-space: nowrap;
+}
+
+.sort-chevron {
+  color: #8B0000;
+  font-size: 18px;
+  transition: transform 0.25s ease;
+  flex-shrink: 0;
+}
+
+.sort-chevron.rotate {
+  transform: rotate(180deg);
+}
+
+.custom-sort-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  left: 0;
+  background: #FFFFFF;
+  border-radius: 18px;
+  padding: 8px;
+  border: 1px solid #FDEDEC;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.22), 0 4px 12px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.custom-sort-header {
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: #A0A0A0;
+  letter-spacing: 0.6px;
+  padding: 6px 12px 4px;
+}
+
+.custom-sort-item {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 0.86rem;
+  font-weight: 600;
+  color: #2D2D2D;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: left;
+}
+
+.custom-sort-item:hover {
+  background: #FEF5F5;
+  color: #8B0000;
+  transform: translateX(3px);
+}
+
+.custom-sort-item.active {
+  background: linear-gradient(135deg, #8B0000, #C0392B);
+  color: #FFFFFF;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(139, 0, 0, 0.25);
+}
+
+.sort-item-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sort-item-icon {
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  color: #8B0000;
+  transition: color 0.2s ease;
+}
+
+.custom-sort-item.active .sort-item-icon {
+  color: #FFFFFF;
+}
+
+.sort-item-check {
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+/* =========================================
+   GRID KARTU MENU & EMPTY STATE
+   ========================================= */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+}
+
+.menu-empty-box {
+  text-align: center;
+  padding: 48px 20px;
+  background: #FFFFFF;
+  border-radius: 20px;
+  border: 1.5px dashed #F1948A;
+}
+
+.menu-empty-emoji {
+  font-size: 42px;
+  margin-bottom: 8px;
+}
+
+.menu-empty-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #8B0000;
+  margin: 0 0 4px;
+}
+
+.menu-empty-desc {
+  font-size: 0.86rem;
+  color: #6B6B6B;
+  margin: 0 0 14px;
+}
+
+.menu-reset-btn {
+  padding: 9px 20px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+/* =========================================
+   RESPONSIVE BREAKPOINTS
+   ========================================= */
+@media (max-width: 600px) {
+  .menu-section-container {
+    padding: 0 14px;
+  }
+
+  .menu-search-sort-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  .custom-sort-container {
+    width: 100%;
+  }
+
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1100px) {
+  .menu-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}

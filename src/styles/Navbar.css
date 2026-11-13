@@ -1,0 +1,283 @@
+/* ============================================================================
+   GAYA UTAMA NAVBAR
+   ============================================================================ */
+.main-navbar-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.navbar-inner-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.navbar-brand-link {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  text-decoration: none;
+}
+
+.navbar-logo-img {
+  height: 42px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
+}
+
+.navbar-brand-title {
+  font-weight: 800;
+  font-size: 1.02rem;
+  color: #8B0000;
+  line-height: 1.15;
+  letter-spacing: -0.2px;
+}
+
+.navbar-brand-subtitle {
+  font-size: 0.74rem;
+  font-weight: 500;
+  color: #7A6A6A;
+  line-height: 1.2;
+}
+
+.desktop-nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav-item-link {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #1A1A1A;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.nav-item-link:hover {
+  color: #9a1006;
+}
+
+/* ============================================================================
+   TOMBOL OTENTIKASI & AKUN (DESKTOP) - SEJAJAR & SAMA BESAR (38px)
+   ============================================================================ */
+.desktop-auth-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Jarak antar tombol */
+}
+
+/* Base style untuk semua tombol di desktop auth agar tingginya tepat sama */
+.nav-login-btn,
+.nav-profile-btn,
+.nav-admin-btn {
+  height: 38px; /* Mengunci tinggi agar persis sama */
+  padding: 0 16px; /* Padding samping yang pas */
+  border-radius: 999px; /* Bulat sempurna (pill shape) */
+  font-size: 0.8rem; /* Ukuran font yang kompak */
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px; /* Jarak antara ikon/foto dengan teks */
+  border: none;
+  cursor: pointer;
+  box-sizing: border-box;
+  white-space: nowrap; /* Mencegah teks terlipat */
+  transition: all 0.2s ease;
+}
+
+/* 1. Tombol Profil Pelanggan / Admin (Merah Maroon) */
+.nav-profile-btn {
+  background: #9a1006;
+  color: #FFFFFF;
+  box-shadow: 0 4px 12px rgba(154, 16, 6, 0.15);
+}
+
+.nav-profile-btn:hover {
+  background: #7a0c04;
+}
+
+/* Ukuran foto profil kecil di dalam tombol */
+.nav-profile-btn img {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1.5px solid rgba(255, 255, 255, 0.8); /* Detail garis putih halus */
+  flex-shrink: 0;
+}
+
+/* 2. Tombol Dashboard Admin (Hitam & Kuning) */
+.nav-admin-btn {
+  background: #1A1A1A;
+  color: #FFC72C; /* Teks kuning khas */
+  border: 1px solid rgba(255, 199, 44, 0.2); /* Detail garis kuning tipis */
+}
+
+.nav-admin-btn:hover {
+  background: #2b2b2b;
+  border-color: #FFC72C;
+}
+
+.nav-admin-btn svg {
+  color: #FFC72C;
+  font-size: 14px;
+}
+
+/* 3. Tombol Logout (Lingkaran Hitam Kecil) */
+.nav-logout-btn {
+  width: 38px; /* Ukuran diameter sama dengan tinggi tombol lainnya */
+  height: 38px;
+  border-radius: 50%; /* Menjadikannya bulat sempurna */
+  background: #1A1A1A;
+  color: #FFFFFF;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+
+.nav-logout-btn:hover {
+  background: #9a1006;
+  color: #FFFFFF;
+}
+
+.nav-logout-btn svg {
+  font-size: 15px;
+}
+
+/* Tombol masuk ketika belum login */
+.nav-login-btn {
+  background: #9a1006;
+  color: #FFFFFF;
+}
+
+.nav-login-btn:hover {
+  background: #7a0c04;
+}
+
+/* ============================================================================
+   RESPONSIVE / MOBILE NAVBAR (SAMPUL & DRAWER)
+   ============================================================================ */
+.mobile-menu-toggle {
+  display: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: #FDF2F2;
+  color: #8B0000;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  flex-shrink: 0;
+}
+
+.mobile-menu-toggle:hover {
+  background: #FADBD8;
+}
+
+.mobile-nav-drawer {
+  background: #FFFFFF;
+  padding: 12px 18px 18px;
+  border-top: 1px solid #EEEEEE;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+}
+
+.mobile-nav-link {
+  font-size: 0.88rem;
+  font-weight: 800;
+  color: #1A1A1A;
+  text-decoration: none;
+  padding: 6px 0;
+  border-bottom: 1px solid #F5F5F5;
+}
+
+.mobile-auth-box {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.mobile-login-btn,
+.mobile-admin-btn,
+.mobile-profile-btn,
+.mobile-logout-btn {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 11px;
+  font-size: 0.82rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  border: none;
+}
+
+.mobile-profile-btn {
+  background: #9a1006;
+  color: #FFFFFF;
+}
+
+.mobile-admin-btn {
+  background: #1A1A1A;
+  color: #FFC72C;
+}
+
+.mobile-logout-btn {
+  background: #1A1A1A;
+  color: #FFFFFF;
+}
+
+.mobile-login-btn {
+  background: #9a1006;
+  color: #FFFFFF;
+}
+
+@media (max-width: 820px) {
+  .desktop-nav,
+  .desktop-auth-actions {
+    display: none;
+  }
+  .mobile-menu-toggle {
+    display: flex;
+  }
+  .navbar-inner-container {
+    height: 56px;
+    padding: 0 14px;
+  }
+  .navbar-brand-link {
+    gap: 9px;
+  }
+  .navbar-logo-img {
+    height: 32px;
+  }
+  .navbar-brand-title {
+    font-size: 0.9rem;
+  }
+  .navbar-brand-subtitle {
+    font-size: 0.66rem;
+  }
+}

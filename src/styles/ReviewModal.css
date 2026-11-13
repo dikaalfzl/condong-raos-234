@@ -1,0 +1,289 @@
+.review-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 2600;
+  background: rgba(26, 26, 26, 0.7);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  box-sizing: border-box;
+}
+
+/* Overflow hidden pada kartu luar menjamin ke-4 sudut bulat sempurna */
+.review-modal-card {
+  width: 100%;
+  max-width: 560px;
+  max-height: 88vh;
+  overflow: hidden;
+  background: #FFFFFF;
+  border-radius: 26px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.32);
+  border: 1px solid #FDEDEC;
+  display: flex;
+  flex-direction: column;
+}
+
+.review-menu-banner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 24px;
+  background: linear-gradient(135deg, #9a1006 0%, #3E0000 100%);
+  color: white;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.review-menu-thumb {
+  width: 72px;
+  height: 72px;
+  border-radius: 16px;
+  object-fit: cover;
+  border: 2px solid #FFC72C;
+  background: #FEF5F5;
+  flex-shrink: 0;
+}
+
+.review-body {
+  padding: 22px 24px 24px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.review-body::-webkit-scrollbar {
+  width: 5px;
+}
+
+.review-body::-webkit-scrollbar-thumb {
+  background: rgba(154, 16, 6, 0.25);
+  border-radius: 99px;
+}
+
+.star-picker {
+  display: flex;
+  gap: 8px;
+  margin: 8px 0 14px;
+}
+
+.star-btn {
+  font-size: 28px;
+  color: #D0D0D0;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  transition: transform 0.15s ease, color 0.15s ease;
+}
+
+.star-btn.active {
+  color: #F39C12;
+}
+
+.star-btn:hover {
+  transform: scale(1.18);
+}
+
+.review-textarea {
+  width: 100%;
+  min-height: 90px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1.5px solid #E8E8E8;
+  font-family: inherit;
+  font-size: 0.9rem;
+  resize: vertical;
+  margin-bottom: 12px;
+  background: #FFFFFF;
+  box-sizing: border-box;
+}
+
+.review-textarea:focus {
+  outline: none;
+  border-color: #9a1006;
+}
+
+/* TOMBOL KIRIM ULASAN YANG SEBELUMNYA BELUM TERDEFINISI */
+.btn-primary-red {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 20px;
+  border-radius: 12px;
+  background: #9a1006;
+  color: #FFFFFF;
+  font-size: 0.88rem;
+  font-weight: 800;
+  border: 2px solid #9a1006;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(154, 16, 6, 0.24);
+  transition: all 0.25s ease;
+}
+
+.btn-primary-red:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-secondary-gray {
+  padding: 13px 18px;
+  border-radius: 12px;
+  background: #E8E8E8;
+  color: #1A1A1A;
+  font-size: 0.85rem;
+  font-weight: 800;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.btn-secondary-gray:hover {
+  background: #D5D5D5;
+}
+
+.reviews-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.review-item-card {
+  padding: 16px;
+  border-radius: 16px;
+  background: #FEF5F5;
+  border: 1px solid #FDEDEC;
+}
+
+.reviewer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.reviewer-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.reviewer-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #9a1006;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.admin-reply-box {
+  margin-top: 12px;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: #FFFFFF;
+  border-left: 4px solid #9a1006;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+@media (max-width: 480px) {
+  .review-modal-card {
+    border-radius: 22px;
+  }
+  .review-menu-banner {
+    padding: 16px 18px;
+  }
+  .review-body {
+    padding: 16px;
+  }
+}
+/* === FITUR INTERACTIVE PHOTO CROPPER === */
+.crop-box-container {
+  background: #F9F9F9;
+  border: 1.5px solid #9a1006;
+  border-radius: 20px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.crop-box-title {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 0.85rem;
+  font-weight: 900;
+  color: #1A1A1A;
+}
+
+.crop-box-title small {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #9a1006;
+}
+
+.crop-viewport-circle {
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  background: #1A1A1A;
+  border: 4px solid #9a1006;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+}
+
+.crop-viewport-circle:active {
+  cursor: grabbing;
+}
+
+.crop-draggable-img {
+  position: absolute;
+  max-width: none;
+  pointer-events: none;
+  user-select: none;
+}
+
+.crop-zoom-row {
+  width: 100%;
+  max-width: 240px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.crop-zoom-slider {
+  flex: 1;
+  accent-color: #9a1006;
+  cursor: pointer;
+}
+
+.crop-action-btns {
+  width: 100%;
+  display: flex;
+  gap: 10px;
+}

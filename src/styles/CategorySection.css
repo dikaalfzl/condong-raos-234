@@ -1,0 +1,139 @@
+.category-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 4px 12px 24px;
+  margin: 0 auto 32px;
+  overflow: visible;
+}
+
+.category-btn {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  z-index: 1;
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 0;
+  min-width: 0;
+  min-height: 62px;
+  box-sizing: border-box;
+  padding: 12px 4px;
+  border-radius: 18px;
+  border: 2px solid #E8E8E8;
+  background: white;
+  color: #2D2D2D;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.category-btn::before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: -25%;
+  width: 150%;
+  height: 200%;
+  background: #8B0000;
+  border-radius: 50% 50% 0 0;
+  z-index: -2;
+  transition: top 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.category-btn::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: -25%;
+  width: 150%;
+  height: 200%;
+  background: #1A1A1A;
+  border-radius: 50% 50% 0 0;
+  z-index: -1;
+  transition: top 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.1s;
+}
+
+.category-btn.active::before {
+  top: -25%;
+  transition-delay: 0s;
+}
+
+.category-btn.active::after {
+  top: -25%;
+  transition-delay: 0.1s;
+}
+
+.category-btn.active {
+  border-color: #1A1A1A;
+  color: white !important;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.category-icon {
+  font-size: 26px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.category-text {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  text-align: center;
+  line-height: 1.2;
+  white-space: normal;
+  word-break: normal;
+  overflow-wrap: break-word;
+}
+
+@media (max-width: 768px) {
+  .category-container {
+    gap: 7px;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+  .category-btn {
+    min-height: 60px;
+    padding: 10px 3px;
+    border-radius: 16px;
+  }
+  .category-icon {
+    font-size: 23px;
+  }
+  .category-text {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .category-container {
+    gap: 6px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 24px;
+  }
+  .category-btn {
+    min-height: 58px;
+    padding: 9px 2px;
+    border-radius: 15px;
+    gap: 6px;
+  }
+  .category-icon {
+    font-size: 21px;
+  }
+  .category-text {
+    font-size: 0.65rem;
+    letter-spacing: 0;
+  }
+}

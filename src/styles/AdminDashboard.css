@@ -1,0 +1,1516 @@
+.admin-fullpage {
+  min-height: 100vh;
+  background: #F6F6F6;
+  padding-bottom: 60px;
+}
+
+.admin-navbar-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.96);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.07);
+}
+
+.admin-navbar-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.admin-brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  cursor: pointer;
+}
+
+.admin-logo-img {
+  height: 42px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  flex-shrink: 0;
+}
+
+.admin-brand-title {
+  font-weight: 800;
+  font-size: 1.02rem;
+  color: #8B0000;
+  line-height: 1.15;
+  letter-spacing: -0.2px;
+}
+
+.admin-brand-sub {
+  font-size: 0.74rem;
+  font-weight: 500;
+  color: #7A6A6A;
+  line-height: 1.2;
+}
+
+.admin-back-web-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 18px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.admin-main-container {
+  max-width: 1200px;
+  margin: 24px auto 0;
+  padding: 0 20px;
+}
+
+/* === 5 TOMBOL TAB FITUR RAPI & SIMETRIS === */
+.admin-tabs-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  margin-bottom: 24px;
+  background: #FFFFFF;
+  padding: 8px;
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+  border: 1px solid #EDEDED;
+}
+
+.admin-tab-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: #F8F8F8;
+  color: #1A1A1A;
+  font-weight: 800;
+  font-size: 0.82rem;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  text-align: center;
+  transition: all 0.22s ease;
+}
+
+.admin-tab-item .tab-icon {
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.admin-tab-item:hover {
+  background: #FEF5F5;
+  border-color: #9a1006;
+  color: #9a1006;
+}
+
+.admin-tab-item.active {
+  background: #9a1006;
+  color: #FFFFFF;
+  border-color: #9a1006;
+  box-shadow: 0 6px 16px rgba(154, 16, 6, 0.25);
+}
+
+.admin-split-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.admin-form-card,
+.admin-list-card {
+  background: #FFFFFF;
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.admin-form-card h3,
+.admin-list-card h3 {
+  font-size: 1.08rem;
+  font-weight: 900;
+  color: #1A1A1A;
+  margin: 0 0 6px;
+}
+
+.admin-form-card label {
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #1A1A1A;
+}
+
+.admin-form-card input[type="text"],
+.admin-form-card input[type="number"],
+.admin-form-card select,
+.admin-form-card textarea,
+.promo-editor-card textarea {
+  width: 100%;
+  padding: 11px 14px;
+  border-radius: 14px;
+  border: 1.5px solid #E0E0E0;
+  font-size: 0.86rem;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.admin-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.admin-upload-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px;
+  border-radius: 14px;
+  border: 1.5px dashed #9a1006;
+  background: #FEF5F5;
+  color: #9a1006;
+  font-weight: 800;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.admin-checkbox-row {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin: 4px 0;
+}
+
+.admin-checkbox-row label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.84rem;
+  cursor: pointer;
+}
+
+.admin-action-btns-row {
+  display: flex;
+  gap: 10px;
+}
+
+.admin-save-btn {
+  padding: 14px 20px;
+  border-radius: 14px;
+  font-weight: 800;
+  font-size: 0.9rem;
+  cursor: pointer;
+  flex: 1;
+}
+
+.admin-cancel-btn {
+  padding: 14px 18px;
+  border-radius: 14px;
+  background: #EEEEEE;
+  color: #1A1A1A;
+  font-weight: 800;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.admin-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.admin-list-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 16px;
+  background: #F9F9F9;
+  border: 1px solid #EEEEEE;
+}
+
+.admin-row-thumb {
+  width: 54px;
+  height: 54px;
+  border-radius: 12px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.admin-row-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-row-info strong {
+  font-size: 0.9rem;
+  color: #1A1A1A;
+}
+
+.admin-row-info span {
+  font-size: 0.76rem;
+  color: #666666;
+}
+
+.admin-row-actions {
+  display: flex;
+  gap: 6px;
+}
+
+.act-edit,
+.act-del {
+  padding: 8px 10px;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  border: none;
+}
+
+.act-edit {
+  background: #FFC72C;
+  color: #1A1A1A;
+}
+
+.act-del {
+  background: #9a1006;
+  color: #FFFFFF;
+}
+
+/* === FITUR KEUANGAN HARIAN === */
+.finance-section-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* === TOOLBAR KEUANGAN RATA PENUH & SIMETRIS === */
+.finance-toolbar-card {
+  background: #FFFFFF;
+  padding: 16px;
+  border-radius: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+  border: 1px solid #EDEDED;
+}
+
+.finance-toolbar-top {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 12px;
+  align-items: center;
+}
+
+.finance-view-toggle {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: #F3F3F3;
+  padding: 5px;
+  border-radius: 14px;
+  gap: 6px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.view-mode-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #555555;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.view-mode-btn.active {
+  background: #9a1006;
+  color: #FFFFFF;
+  box-shadow: 0 4px 12px rgba(154, 16, 6, 0.25);
+}
+
+.finance-export-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  width: 100%;
+}
+
+.finance-toolbar-date-row {
+  width: 100%;
+  padding-top: 4px;
+  border-top: 1px dashed #EAEAEA;
+}
+
+.daily-recap-header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed #E0E0E0;
+}
+
+@media (max-width: 768px) {
+  .finance-toolbar-top {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
+
+.btn-export-excel,
+.btn-export-csv,
+.btn-reset-day {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 16px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.2s ease;
+}
+
+.btn-export-excel {
+  background: #1E8449;
+  color: #FFFFFF;
+}
+
+.btn-export-csv {
+  background: #1A1A1A;
+  color: #FFC72C;
+}
+
+.btn-reset-day {
+  background: #FDEDEC;
+  color: #9a1006;
+  border: 1px solid #9a1006;
+}
+
+.finance-summary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.finance-stat-card {
+  background: #FFFFFF;
+  border-radius: 22px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+  border-left: 6px solid #1A1A1A;
+}
+
+.finance-stat-card.income {
+  border-left-color: #1E8449;
+}
+
+.finance-stat-card.expense {
+  border-left-color: #9a1006;
+}
+
+.finance-stat-card.balance {
+  border-left-color: #FFC72C;
+  background: #1A1A1A;
+  color: #FFFFFF;
+}
+
+.finance-stat-card .stat-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.finance-stat-card.income .stat-icon {
+  background: #EAFAF1;
+  color: #1E8449;
+}
+
+.finance-stat-card.expense .stat-icon {
+  background: #FDEDEC;
+  color: #9a1006;
+}
+
+.finance-stat-card.balance .stat-icon {
+  background: #FFC72C;
+  color: #1A1A1A;
+}
+
+.finance-stat-card span {
+  font-size: 0.75rem;
+  font-weight: 700;
+  opacity: 0.8;
+}
+
+.finance-stat-card h4 {
+  font-size: 1.25rem;
+  font-weight: 900;
+  margin: 4px 0 0;
+}
+
+.finance-stat-card.balance h4 {
+  color: #FFC72C;
+}
+
+.finance-type-switch {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.type-pill {
+  padding: 11px;
+  border-radius: 12px;
+  font-weight: 800;
+  font-size: 0.84rem;
+  background: #F4F4F4;
+  color: #555555;
+  border: 1.5px solid transparent;
+  cursor: pointer;
+}
+
+.type-pill.active-in {
+  background: #EAFAF1;
+  color: #1E8449;
+  border-color: #1E8449;
+}
+
+.type-pill.active-out {
+  background: #FDEDEC;
+  color: #9a1006;
+  border-color: #9a1006;
+}
+
+.finance-empty-state {
+  padding: 28px 18px;
+  text-align: center;
+  background: #F9F9F9;
+  border-radius: 16px;
+  font-size: 0.84rem;
+  color: #666666;
+  line-height: 1.6;
+}
+
+.finance-log-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: #F9F9F9;
+  border: 1px solid #EEEEEE;
+}
+
+.finance-badge-type {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.finance-badge-type.in {
+  background: #EAFAF1;
+  color: #1E8449;
+}
+
+.finance-badge-type.out {
+  background: #FDEDEC;
+  color: #9a1006;
+}
+
+.finance-amount-text {
+  font-weight: 900;
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.finance-amount-text.in {
+  color: #1E8449;
+}
+
+.finance-amount-text.out {
+  color: #9a1006;
+}
+
+/* ULASAN & PENGATURAN STATUS TOKO */
+.admin-review-box {
+  padding: 14px;
+  border-radius: 16px;
+  background: #F9F9F9;
+  border: 1px solid #EEEEEE;
+}
+
+.admin-review-top-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.admin-review-menu-name {
+  color: #9a1006;
+  font-weight: 800;
+}
+
+.admin-review-stars {
+  color: #FFC72C;
+  font-weight: 900;
+}
+
+.admin-review-comment-text {
+  margin: 8px 0;
+  font-size: 0.88rem;
+  color: #1A1A1A;
+}
+
+.admin-reply-input-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.admin-reply-input-row input {
+  flex: 1;
+  min-width: 180px;
+  padding: 9px 12px;
+  border-radius: 10px;
+  border: 1px solid #DDDDDD;
+  font-size: 0.82rem;
+}
+
+.admin-reply-submit-btn {
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-weight: 800;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.status-promo-container {
+  max-width: 820px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.status-promo-header {
+  background: #1A1A1A;
+  color: #FFFFFF;
+  padding: 24px 28px;
+  border-radius: 24px;
+  border-left: 6px solid #FFC72C;
+}
+
+.status-promo-header h3 {
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: #FFC72C;
+  margin: 0 0 6px;
+}
+
+.status-promo-header p {
+  font-size: 0.85rem;
+  opacity: 0.85;
+  margin: 0;
+  line-height: 1.5;
+}
+
+.status-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.interactive-toggle-card {
+  background: #FFFFFF;
+  border-radius: 24px;
+  padding: 22px;
+  border: 2px solid #E8E8E8;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 14px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+}
+
+.interactive-toggle-card.active-open {
+  border-color: #1A1A1A;
+  background: linear-gradient(145deg, #FFFFFF 0%, #FFFDF5 100%);
+}
+
+.interactive-toggle-card.active-closed,
+.interactive-toggle-card.active-promo {
+  border-color: #9a1006;
+  background: #FEF5F5;
+}
+
+.toggle-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.toggle-icon-box {
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  background: #1A1A1A;
+  color: #FFC72C;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toggle-icon-box.promo {
+  background: #9a1006;
+  color: #FFFFFF;
+}
+
+.modern-switch {
+  width: 54px;
+  height: 30px;
+  border-radius: 999px;
+  padding: 3px;
+  display: flex;
+  align-items: center;
+  transition: background 0.25s ease;
+  box-sizing: border-box;
+}
+
+.modern-switch.on {
+  background: #9a1006;
+  justify-content: flex-end;
+}
+
+.modern-switch.off {
+  background: #CCCCCC;
+  justify-content: flex-start;
+}
+
+.switch-knob {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.toggle-status-pill {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 900;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #1A1A1A;
+  color: #FFC72C;
+  margin-bottom: 8px;
+}
+
+.toggle-status-pill.promo {
+  background: #9a1006;
+  color: #FFFFFF;
+}
+
+.toggle-card-body h4 {
+  font-size: 1.05rem;
+  font-weight: 900;
+  color: #1A1A1A;
+  margin: 0 0 6px;
+}
+
+.toggle-card-body p {
+  font-size: 0.8rem;
+  color: #555555;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.promo-editor-card {
+  background: #FFFFFF;
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.promo-editor-card label {
+  font-size: 0.85rem;
+  font-weight: 900;
+  color: #1A1A1A;
+}
+
+.live-preview-box {
+  margin-top: 6px;
+  padding: 18px;
+  border-radius: 18px;
+  background: #F8F8F8;
+  border: 1.5px dashed #CCCCCC;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.live-preview-label {
+  font-size: 0.72rem;
+  font-weight: 900;
+  color: #9a1006;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.preview-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.preview-status-pill.open {
+  background: #1A1A1A;
+  color: #FFFFFF;
+  border: 2px solid #FFC72C;
+}
+
+.preview-status-pill.open strong {
+  color: #FFC72C;
+}
+
+.preview-status-pill.closed {
+  background: #9a1006;
+  color: #FFFFFF;
+}
+
+.preview-status-pill .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #FFC72C;
+  flex-shrink: 0;
+}
+
+.preview-promo-bar {
+  width: 100%;
+  background: #9a1006;
+  color: #FFFFFF;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.preview-promo-bar .tag {
+  background: #FFC72C;
+  color: #1A1A1A;
+  padding: 3px 8px;
+  border-radius: 999px;
+  font-size: 0.66rem;
+  font-weight: 900;
+}
+
+/* === RESPONSIVE TABLET & MOBILE: TOMBOL KE-5 MERENTANG PENUH AGAR SIMETRIS === */
+@media (max-width: 960px) {
+  .admin-split-grid,
+  .status-cards-grid,
+  .finance-summary-grid {
+    grid-template-columns: 1fr;
+  }
+  .admin-tabs-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    padding: 8px;
+  }
+  .admin-tab-item:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 520px) {
+  .admin-navbar-inner {
+    height: 56px;
+    padding: 0 14px;
+  }
+  .admin-logo-img {
+    height: 32px;
+  }
+  .admin-brand-title {
+    font-size: 0.9rem;
+  }
+  .admin-brand-sub {
+    font-size: 0.65rem;
+  }
+  .admin-back-web-btn {
+    padding: 7px 12px;
+    font-size: 0.72rem;
+  }
+  .admin-main-container {
+    padding: 0 12px;
+    margin-top: 16px;
+  }
+  .admin-tabs-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+    padding: 6px;
+    border-radius: 18px;
+  }
+  .admin-tab-item {
+    padding: 11px 10px;
+    font-size: 0.76rem;
+    border-radius: 12px;
+  }
+  .admin-tab-item:last-child {
+    grid-column: 1 / -1;
+  }
+  .admin-form-card,
+  .admin-list-card,
+  .promo-editor-card {
+    padding: 16px;
+    border-radius: 18px;
+  }
+  .admin-2col {
+    grid-template-columns: 1fr;
+  }
+  .admin-list-row,
+  .finance-log-row {
+    flex-wrap: wrap;
+  }
+}/* === TAMPILAN SEMUA REKAP HARIAN (GROUP PER TANGGAL) === */
+.finance-view-toggle {
+  display: inline-flex;
+  background: #F2F2F2;
+  padding: 4px;
+  border-radius: 12px;
+  gap: 4px;
+}
+
+.view-mode-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 9px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #555555;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.view-mode-btn.active {
+  background: #9a1006;
+  color: #FFFFFF;
+  box-shadow: 0 3px 10px rgba(154, 16, 6, 0.22);
+}
+
+.daily-recap-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.daily-recap-card {
+  background: #FFFFFF;
+  border: 1.5px solid #EAEAEA;
+  border-radius: 18px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.daily-recap-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding-bottom: 10px;
+  border-bottom: 1px dashed #E0E0E0;
+}
+
+.daily-recap-date {
+  font-size: 0.9rem;
+  font-weight: 900;
+  color: #1A1A1A;
+  margin-bottom: 6px;
+}
+
+.daily-recap-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.recap-pill {
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 3px 9px;
+  border-radius: 999px;
+}
+
+.recap-pill.in {
+  background: #EAFAF1;
+  color: #1E8449;
+}
+
+.recap-pill.out {
+  background: #FDEDEC;
+  color: #9a1006;
+}
+
+.recap-pill.net {
+  background: #1A1A1A;
+  color: #FFC72C;
+}
+/* === DESAIN KALENDER KUSTOM MODERN (MAROON & GOLD) === */
+.cr-datepicker-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.cr-datepicker-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 14px 8px 8px;
+  border-radius: 14px;
+  background: #FAFAFA;
+  border: 1.5px solid #E0E0E0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+}
+
+.cr-datepicker-trigger:hover,
+.cr-datepicker-trigger.active {
+  border-color: #9a1006;
+  background: #FEF5F5;
+  box-shadow: 0 4px 14px rgba(154, 16, 6, 0.1);
+}
+
+.cr-trigger-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.cr-cal-badge {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: #9a1006;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.cr-trigger-text {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: #1A1A1A;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cr-trigger-Sub {
+  font-size: 0.72rem;
+  font-weight: 900;
+  color: #9a1006;
+  background: #FFFFFF;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(154, 16, 6, 0.2);
+  flex-shrink: 0;
+}
+
+.cr-calendar-popover {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  z-index: 250;
+  width: 300px;
+  max-width: calc(100vw - 32px);
+  background: #FFFFFF;
+  border-radius: 22px;
+  padding: 16px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.22);
+  border: 1.5px solid #FDEDEC;
+  animation: calFadeIn 0.2s ease;
+  box-sizing: border-box;
+}
+
+@keyframes calFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.cr-cal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(135deg, #9a1006 0%, #580000 100%);
+  color: #FFFFFF;
+  padding: 10px 12px;
+  border-radius: 14px;
+  margin-bottom: 12px;
+}
+
+.cr-cal-title {
+  font-size: 0.9rem;
+  font-weight: 900;
+  letter-spacing: 0.3px;
+}
+
+.cr-cal-nav-btn {
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.16);
+  color: #FFFFFF;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.cr-cal-nav-btn:hover {
+  background: #FFC72C;
+  color: #1A1A1A;
+}
+
+.cr-cal-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-bottom: 6px;
+  text-align: center;
+}
+
+.cr-weekday-name {
+  font-size: 0.72rem;
+  font-weight: 800;
+  color: #777777;
+  padding: 4px 0;
+}
+
+.cr-weekday-name.sunday {
+  color: #9a1006;
+}
+
+.cr-cal-days-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+.cr-cal-day {
+  height: 36px;
+  border-radius: 10px;
+  border: none;
+  background: transparent;
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: #1A1A1A;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.cr-cal-day:hover:not(.muted):not(.selected) {
+  background: #FEF5F5;
+  color: #9a1006;
+}
+
+.cr-cal-day.muted {
+  color: #CCCCCC;
+  cursor: default;
+  font-weight: 600;
+}
+
+.cr-cal-day.today {
+  border: 1.5px solid #9a1006;
+  color: #9a1006;
+}
+
+.cr-cal-day.selected {
+  background: #9a1006;
+  color: #FFFFFF;
+  box-shadow: 0 4px 12px rgba(154, 16, 6, 0.3);
+}
+
+.cr-day-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #FFC72C;
+  position: absolute;
+  bottom: 4px;
+}
+
+.cr-cal-day:not(.selected) .cr-day-dot {
+  background: #1E8449;
+}
+
+.cr-cal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid #F0F0F0;
+}
+
+.cr-cal-today-btn {
+  flex: 1;
+  padding: 8px 12px;
+  border-radius: 10px;
+  background: #FFC72C;
+  color: #1A1A1A;
+  font-size: 0.76rem;
+  font-weight: 900;
+  border: none;
+  cursor: pointer;
+}
+
+.cr-cal-close-btn {
+  padding: 8px 14px;
+  border-radius: 10px;
+  background: #F2F2F2;
+  color: #1A1A1A;
+  font-size: 0.76rem;
+  font-weight: 800;
+  border: none;
+  cursor: pointer;
+}
+/* === PERBAIKAN TOOLBAR KEUANGAN (100% RATA PENUH TANPA RUANG KOSONG) === */
+.cr-finance-toolbar {
+  background: #FFFFFF;
+  padding: 16px;
+  border-radius: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+  border: 1px solid #EDEDED;
+  box-sizing: border-box;
+}
+
+.cr-finance-segmented {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 6px;
+  background: #F2F2F2;
+  padding: 5px;
+  border-radius: 14px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.cr-seg-btn {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 11px 10px;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: #555555;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.cr-seg-btn.active {
+  background: #9a1006;
+  color: #FFFFFF;
+  box-shadow: 0 4px 12px rgba(154, 16, 6, 0.25);
+}
+
+.cr-finance-date-row {
+  width: 100%;
+}
+
+.cr-export-grid {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  gap: 10px;
+  width: 100%;
+}
+
+.cr-export-grid .btn-export-excel,
+.cr-export-grid .btn-export-csv {
+  width: 100%;
+  justify-content: center;
+  padding: 12px 10px;
+  border-radius: 13px;
+}
+
+/* === PERBAIKAN KARTU ULASAN ADMIN AGAR TOMBOL HAPUS KONSISTEN DI KANAN ATAS === */
+.cr-review-card {
+  background: #F9F9F9;
+  border: 1.5px solid #EEEEEE;
+  border-radius: 18px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cr-review-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: nowrap; /* Mencegah tombol Hapus turun ke bawah */
+}
+
+.cr-reviewer-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  flex: 1;
+}
+
+.cr-reviewer-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #9a1006;
+  color: #FFFFFF;
+  font-weight: 900;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.cr-reviewer-text {
+  min-width: 0;
+  flex: 1;
+}
+
+.cr-reviewer-title-line {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 2px;
+}
+
+.cr-reviewer-name {
+  font-size: 0.92rem;
+  font-weight: 900;
+  color: #1A1A1A;
+}
+
+.cr-menu-badge {
+  background: #FDEDEC;
+  color: #9a1006;
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+
+.cr-review-stars {
+  color: #F59E0B;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+}
+
+.cr-review-del-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 12px;
+  border-radius: 10px;
+  background: #9a1006;
+  color: #FFFFFF;
+  font-size: 0.76rem;
+  font-weight: 800;
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: opacity 0.2s ease;
+}
+
+.cr-review-del-btn:hover {
+  opacity: 0.9;
+}
+
+.cr-review-comment-bubble {
+  background: #FFFFFF;
+  border: 1px solid #EAEAEA;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 0.86rem;
+  color: #1A1A1A;
+  line-height: 1.5;
+}
+
+.cr-existing-reply-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  background: #FEF5F5;
+  border-left: 3.5px solid #9a1006;
+  padding: 9px 12px;
+  border-radius: 10px;
+}
+
+.cr-existing-reply-box .reply-icon {
+  color: #9a1006;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.cr-existing-reply-box span {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 900;
+  color: #9a1006;
+  margin-bottom: 2px;
+}
+
+.cr-existing-reply-box p {
+  margin: 0;
+  font-size: 0.82rem;
+  color: #1A1A1A;
+  font-weight: 600;
+}
+
+.cr-reply-form-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.cr-reply-input {
+  flex: 1;
+  min-width: 0;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1.5px solid #DDDDDD;
+  background: #FFFFFF;
+  font-size: 0.82rem;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+.cr-reply-input:focus {
+  outline: none;
+  border-color: #9a1006;
+}
+
+.cr-reply-send-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 16px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+@media (max-width: 480px) {
+  .cr-seg-btn {
+    font-size: 0.74rem;
+    padding: 10px 6px;
+  }
+  .cr-reply-form-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .cr-reply-send-btn {
+    width: 100%;
+  }
+}

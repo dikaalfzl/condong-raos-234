@@ -2,3 +2,372 @@
   min-height: 100vh;
   overflow-x: hidden;
 }
+
+.toast-notification {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 3000;
+  padding: 14px 20px;
+  border-radius: 14px;
+  color: #FFFFFF;
+  font-size: 0.88rem;
+  font-weight: 700;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.22);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  animation: fadeInUp 0.3s ease;
+}
+
+.toast-notification.success {
+  background: #1A1A1A;
+  border: 2px solid #FFC72C;
+}
+
+.toast-notification.error {
+  background: #9a1006;
+}
+
+.toast-notification.info {
+  background: #1A1A1A;
+}
+
+/* =========================================================
+   ANIMASI TOMBOL SWEEP: DARI MERAH MAROON (#9a1006) KE PUTIH (#FFFFFF)
+   ========================================================= */
+.btn-sweep-red-to-white {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  background: #9a1006 !important;
+  color: #FFFFFF !important;
+  border: 2px solid #9a1006 !important;
+  transition: color 0.35s ease, transform 0.25s ease, box-shadow 0.3s ease, border-color 0.3s ease !important;
+}
+
+.btn-sweep-red-to-white > * {
+  position: relative;
+  z-index: 2;
+  color: inherit !important;
+}
+
+.btn-sweep-red-to-white::before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: -25%;
+  width: 150%;
+  height: 220%;
+  background-color: #FFFFFF;
+  border-radius: 50% 50% 0 0;
+  transition: top 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
+}
+
+.btn-sweep-red-to-white:hover::before,
+.btn-sweep-red-to-white:active::before {
+  top: -35%;
+}
+
+.btn-sweep-red-to-white:hover,
+.btn-sweep-red-to-white:active {
+  color: #9a1006 !important;
+  border-color: #FFFFFF !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.28) !important;
+}
+
+/* =========================================================
+   TEMA BACKGROUND GELOMBANG (PUTIH, MAROON, HITAM, KUNING)
+   ========================================================= */
+.wavy-page-wrapper #home {
+  background: #FFFFFF !important;
+  padding-bottom: 32px !important;
+}
+
+.wavy-page-wrapper #menu {
+  background: #9a1006 !important;
+  padding-top: 40px !important;
+  padding-bottom: 56px !important;
+}
+
+.wavy-page-wrapper #menu h2 {
+  color: #FFFFFF !important;
+}
+
+.wavy-page-wrapper #menu > div > div > p {
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+
+.wavy-page-wrapper #maps {
+  background: #141414 !important;
+  padding-top: 40px !important;
+  padding-bottom: 56px !important;
+}
+
+.wavy-page-wrapper #maps h2,
+.wavy-page-wrapper #maps h3 {
+  color: #FFFFFF !important;
+}
+
+.wavy-page-wrapper #maps > div > div > p,
+.wavy-page-wrapper #maps .gallery-subtitle-text {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.wavy-page-wrapper #maps .btn-gallery-toggle {
+  background: #1A1A1A !important;
+  border-color: #FFC72C !important;
+  color: #FFC72C !important;
+}
+
+.wavy-page-wrapper #maps .btn-gallery-toggle:hover {
+  background: #9a1006 !important;
+  border-color: #9a1006 !important;
+  color: #FFFFFF !important;
+}
+
+.wavy-page-wrapper #contact {
+  background: #FFC72C !important;
+  padding-top: 40px !important;
+  padding-bottom: 64px !important;
+}
+
+.wavy-page-wrapper #contact h2 {
+  color: #1A1A1A !important;
+}
+
+.wavy-page-wrapper #contact > div > div > p {
+  color: #1A1A1A !important;
+  font-weight: 600;
+}
+/* ==========================================================================
+   SISTEM KONSISTENSI ANIMASI TOMBOL (CONDONG RAOS 234)
+   ========================================================================== */
+
+/* 1. TOMBOL UTAMA: MERAH MAROON -> GELOMBANG PUTIH SAAT HOVER */
+.btn-sweep-red-to-white,
+.btn-gallery-toggle {
+  position: relative !important;
+  overflow: hidden !important;
+  isolation: isolate !important;
+  z-index: 1;
+  background-color: #9a1006 !important;
+  color: #FFFFFF !important;
+  border: 2px solid #9a1006 !important;
+  cursor: pointer;
+  transition:
+    color 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.25s cubic-bezier(0.22, 1, 0.36, 1) !important;
+  box-shadow: 0 6px 18px rgba(154, 16, 6, 0.24);
+}
+
+/* Pastikan teks & ikon di dalam tombol selalu berada di atas gelombang animasi */
+.btn-sweep-red-to-white > *,
+.btn-gallery-toggle > * {
+  position: relative;
+  z-index: 2;
+  color: inherit !important;
+  transition: color 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Lapisan gelombang putih dari bawah */
+.btn-sweep-red-to-white::before,
+.btn-gallery-toggle::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 105% !important;
+  left: -20% !important;
+  width: 140% !important;
+  height: 220% !important;
+  background-color: #FFFFFF !important;
+  border-radius: 50% 50% 0 0 !important;
+  transition: top 0.52s cubic-bezier(0.22, 1, 0.36, 1) !important;
+  z-index: 1 !important;
+  pointer-events: none;
+}
+
+.btn-sweep-red-to-white:hover,
+.btn-gallery-toggle:hover {
+  color: #9a1006 !important;
+  border-color: #9a1006 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(154, 16, 6, 0.32);
+}
+
+.btn-sweep-red-to-white:hover::before,
+.btn-gallery-toggle:hover::before {
+  top: -30% !important;
+}
+
+.btn-sweep-red-to-white:active,
+.btn-gallery-toggle:active {
+  transform: translateY(0) scale(0.97);
+}
+
+/* 2. TOMBOL AKSEN GELAP -> GELOMBANG KUNING EMAS (ADMIN & EXPORT CSV) */
+.nav-admin-btn,
+.mobile-admin-btn,
+.btn-export-csv {
+  position: relative !important;
+  overflow: hidden !important;
+  isolation: isolate !important;
+  z-index: 1;
+  background-color: #1A1A1A !important;
+  color: #FFC72C !important;
+  border: 2px solid #1A1A1A !important;
+  transition:
+    color 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.25s cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+.nav-admin-btn > *,
+.mobile-admin-btn > *,
+.btn-export-csv > * {
+  position: relative !important;
+  z-index: 2 !important;
+  color: inherit !important;
+}
+
+.nav-admin-btn::before,
+.mobile-admin-btn::before,
+.btn-export-csv::before {
+  content: '' !important;
+  position: absolute !important;
+  top: 105% !important;
+  left: -20% !important;
+  width: 140% !important;
+  height: 220% !important;
+  background-color: #FFC72C !important;
+  border-radius: 50% 50% 0 0 !important;
+  transition: top 0.52s cubic-bezier(0.22, 1, 0.36, 1) !important;
+  z-index: 1 !important;
+  pointer-events: none;
+}
+
+@media (hover: hover) {
+  .nav-admin-btn:hover,
+  .mobile-admin-btn:hover,
+  .btn-export-csv:hover {
+    color: #1A1A1A !important;
+    border-color: #FFC72C !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(255, 199, 44, 0.3);
+  }
+
+  .nav-admin-btn:hover::before,
+  .mobile-admin-btn:hover::before,
+  .btn-export-csv:hover::before {
+    top: -30% !important;
+  }
+}
+
+.nav-admin-btn:active,
+.mobile-admin-btn:active,
+.btn-export-csv:active {
+  background-color: #FFC72C !important;
+  color: #1A1A1A !important;
+  transform: scale(0.97);
+}
+
+/* 3. TOMBOL HIJAU EXCEL -> GELOMBANG PUTIH HIJAU KONSISTEN */
+.btn-export-excel {
+  position: relative !important;
+  overflow: hidden !important;
+  isolation: isolate !important;
+  z-index: 1;
+  background-color: #1E8449 !important;
+  color: #FFFFFF !important;
+  border: 2px solid #1E8449 !important;
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+.btn-export-excel > * {
+  position: relative;
+  z-index: 2;
+  color: inherit !important;
+}
+
+.btn-export-excel::before {
+  content: '';
+  position: absolute;
+  top: 105%;
+  left: -20%;
+  width: 140%;
+  height: 220%;
+  background-color: #FFFFFF;
+  border-radius: 50% 50% 0 0;
+  transition: top 0.52s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.btn-export-excel:hover {
+  color: #1E8449 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(30, 132, 73, 0.28);
+}
+
+.btn-export-excel:hover::before {
+  top: -30%;
+}
+
+/* 4. TOMBOL TAB, FILTER, EDIT & HAPUS (EFEK HOVER LIFT & ACTIVE PRESS SERAGAM) */
+.admin-tab-item,
+.cat-filter-pill,
+.star-filter-pill,
+.photo-tab-pill,
+.cr-seg-btn,
+.act-edit,
+.act-del,
+.cr-review-del-btn,
+.reset-filter-btn,
+.nav-logout-btn,
+.mobile-logout-btn {
+  transition:
+    background-color 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    color 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.22s cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+.admin-tab-item:hover,
+.cat-filter-pill:hover,
+.star-filter-pill:hover,
+.photo-tab-pill:hover,
+.act-edit:hover,
+.act-del:hover,
+.cr-review-del-btn:hover,
+.reset-filter-btn:hover,
+.nav-logout-btn:hover {
+  transform: translateY(-2px);
+}
+
+.admin-tab-item:active,
+.cat-filter-pill:active,
+.star-filter-pill:active,
+.photo-tab-pill:active,
+.cr-seg-btn:active,
+.act-edit:active,
+.act-del:active,
+.cr-review-del-btn:active,
+.reset-filter-btn:active {
+  transform: translateY(0) scale(0.96);
+}
+/* Mencegah kata seperti "Majalengka" terpotong di tengah suku kata */
+#contact p,
+#contact span,
+#contact div,
+#maps p,
+#maps span,
+#maps div {
+  word-break: normal !important;
+  overflow-wrap: break-word !important;
+  hyphens: none !important;
+}

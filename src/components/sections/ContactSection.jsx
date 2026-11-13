@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { FiMail, FiMapPin } from 'react-icons/fi';
 import { FaWhatsapp, FaInstagram, FaFacebook, FaTiktok } from 'react-icons/fa';
+import '../../styles/ContactSection.css';
 
 const contactCards = [
   {
@@ -282,60 +283,6 @@ export default function ContactSection() {
           </div>
         </motion.div>
       </div>
-
-      <style>{`
-        .btn-sweep {
-          position: relative; 
-          overflow: hidden;   
-          z-index: 1;         
-          transition: all 0.3s ease;
-        }
-
-        .btn-sweep::before {
-          content: '';
-          position: absolute;
-          top: 100%; 
-          left: -25%; 
-          width: 150%; 
-          height: 200%; 
-          background-color: #8B0000; 
-          border-radius: 50% 50% 0 0; 
-          transition: top 1s cubic-bezier(0.4, 0, 0.2, 1);
-          z-index: -1;
-        }
-
-        .btn-sweep:hover::before {
-          top: -25%; 
-        }
-
-        .btn-sweep:hover {
-          box-shadow: 0 12px 40px rgba(139,0,0,0.2) !important;
-          border-color: #8B0000 !important;
-        }
-
-        .btn-sweep:hover .card-label,
-        .btn-sweep:hover .card-value,
-        .btn-sweep:hover .social-text,
-        .btn-sweep:hover .social-icon {
-          color: white !important;
-        }
-
-        .btn-sweep:hover .icon-box {
-          background-color: rgba(255, 255, 255, 0.2) !important;
-          color: white !important;
-        }
-
-        @media (max-width: 768px) {
-          .contact-grid {
-            grid-template-columns: 1fr !important;
-          }
-        }
-        @media (min-width: 769px) and (max-width: 900px) {
-          .contact-grid {
-            grid-template-columns: repeat(2, 1fr) !important;
-          }
-        }
-      `}</style>
     </section>
   );
 }

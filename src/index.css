@@ -1,4 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+@font-face {
+  font-family: 'Adumu'; /* Nama bebas untuk memanggil font ini di CSS */
+  src: url('/fonts/FadoneDEMO-Regular.ttf') format('truetype'); /* Sesuaikan nama file Anda */
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Burger'; /* Nama bebas untuk memanggil font ini di CSS */
+  src: url('/fonts/Burger Free.ttf') format('truetype'); /* Sesuaikan nama file Anda */
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Tomato'; /* Nama bebas untuk memanggil font ini di CSS */
+  src: url('/fonts/Adumu.ttf') format('truetype'); /* Sesuaikan nama file Anda */
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -43,9 +64,14 @@
 
   --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-
+  
+/* Menerapkan font kustom ke seluruh judul section */
+section h2 {
+  font-family: 'Tomato', sans-serif !important;
+  letter-spacing: 1.5px;
+}
   font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   color: var(--gray-900);
   background-color: var(--white);
   -webkit-font-smoothing: antialiased;

@@ -1,0 +1,370 @@
+.profile-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 2600;
+  background: rgba(0, 0, 0, 0.72);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+}
+
+/* Overflow hidden pada kartu luar menjamin ke-4 sudut bulat sempurna */
+.profile-modal-card {
+  width: 100%;
+  max-width: 520px;
+  max-height: 86vh;
+  background: #FFFFFF;
+  border-radius: 28px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
+}
+
+.profile-modal-header {
+  background: #9a1006;
+  color: #FFFFFF;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.profile-modal-header h2 {
+  font-size: 1.25rem;
+  font-weight: 900;
+  margin: 0 0 2px;
+}
+
+.profile-modal-header p {
+  font-size: 0.8rem;
+  opacity: 0.9;
+  margin: 0;
+}
+
+.profile-modal-close {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.16);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.profile-modal-close:hover {
+  background: #1A1A1A;
+}
+
+.profile-modal-body {
+  padding: 22px 24px 24px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Scrollbar halus di dalam body agar tidak merusak sudut kartu */
+.profile-modal-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.profile-modal-body::-webkit-scrollbar-thumb {
+  background: rgba(154, 16, 6, 0.25);
+  border-radius: 99px;
+}
+
+.profile-top-summary {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #EEEEEE;
+}
+
+.profile-avatar-circle {
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  border: 3px solid #9a1006;
+  background: #FEF5F5;
+  color: #9a1006;
+  font-size: 1.9rem;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.profile-avatar-circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-user-meta h3 {
+  font-size: 1.2rem;
+  font-weight: 900;
+  color: #1A1A1A;
+  margin: 0 0 4px;
+}
+
+.profile-role-badge {
+  font-size: 0.76rem;
+  color: #666666;
+  margin-bottom: 10px;
+}
+
+.profile-role-badge strong {
+  color: #9a1006;
+  font-weight: 900;
+}
+
+.profile-edit-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.profile-edit-form {
+  background: #F9F9F9;
+  padding: 16px;
+  border-radius: 18px;
+  border: 1px solid #EEEEEE;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.profile-form-field > label:not(.profile-upload-btn),
+.profile-field-label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: #1A1A1A;
+  margin-bottom: 6px;
+}
+
+.profile-form-field input[type="text"] {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1.5px solid #DDDDDD;
+  font-size: 0.88rem;
+  font-weight: 600;
+  box-sizing: border-box;
+}
+
+/* PERBAIKAN: Menambahkan padding, gap, dan flex-wrap agar ikon & teks tidak bertabrakan */
+.profile-upload-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 18px;
+  border-radius: 12px;
+  border: 1.5px dashed #9a1006;
+  background: #FFFFFF;
+  color: #9a1006;
+  font-size: 0.82rem;
+  font-weight: 800;
+  cursor: pointer;
+  text-align: center;
+  box-sizing: border-box;
+  flex-wrap: wrap;
+}
+
+.profile-edit-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.profile-save-btn {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 16px;
+  border-radius: 12px;
+  font-size: 0.82rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.profile-cancel-btn {
+  padding: 10px 16px;
+  border-radius: 12px;
+  background: #E5E5E5;
+  color: #1A1A1A;
+  font-size: 0.82rem;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.profile-reviews-header h4 {
+  font-size: 0.92rem;
+  font-weight: 900;
+  color: #1A1A1A;
+  margin: 0 0 12px;
+}
+
+.profile-reviews-empty {
+  padding: 20px;
+  text-align: center;
+  background: #F9F9F9;
+  border-radius: 16px;
+  font-size: 0.84rem;
+  color: #666666;
+}
+
+.profile-reviews-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.profile-review-item {
+  background: #FEF5F5;
+  border: 1px solid #FDEDEC;
+  border-radius: 16px;
+  padding: 12px 14px;
+}
+
+.profile-review-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.profile-review-menu {
+  font-size: 0.86rem;
+  font-weight: 800;
+  color: #9a1006;
+}
+
+.profile-review-stars {
+  color: #FFC72C;
+  font-size: 0.78rem;
+}
+
+.profile-review-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.profile-review-date {
+  font-size: 0.7rem;
+  color: #777777;
+  font-weight: 600;
+}
+
+.profile-review-del {
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  background: #FFFFFF;
+  color: #9a1006;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.profile-review-comment {
+  font-size: 0.82rem;
+  color: #1A1A1A;
+  margin: 0;
+  line-height: 1.45;
+}
+
+.profile-toggle-reviews-btn {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 12px;
+  background: #1A1A1A;
+  color: #FFC72C;
+  font-size: 0.8rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+}
+
+@media (max-width: 480px) {
+  .profile-modal-card {
+    border-radius: 24px;
+  }
+  .profile-modal-body {
+    padding: 18px 16px 20px;
+  }
+  .profile-avatar-circle {
+    width: 62px;
+    height: 62px;
+    font-size: 1.5rem;
+  }
+}
+label.profile-upload-btn {
+  display: flex !important;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 11px 16px;
+  margin-bottom: 0 !important;
+  border-radius: 14px;
+  border: 1.5px dashed #9a1006;
+  background: #FFFDFD;
+  color: #1A1A1A;
+  font-size: 0.84rem;
+  font-weight: 800;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
+}
+
+label.profile-upload-btn:hover {
+  background: #FEF5F5;
+  border-color: #7A0C04;
+  transform: translateY(-1px);
+}
+
+.upload-icon-badge {
+  width: 30px;
+  height: 30px;
+  border-radius: 9px;
+  background: #FDEDEC;
+  color: #9a1006;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.upload-btn-text {
+  line-height: 1.2;
+  color: #1A1A1A;
+  font-weight: 800;
+}

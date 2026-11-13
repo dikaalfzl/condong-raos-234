@@ -1,0 +1,171 @@
+.testi-section {
+          padding: 72px 20px 80px;
+          background: #FFFFFF;
+        }
+        .testi-container {
+          max-width: 1120px;
+          margin: 0 auto;
+        }
+        .testi-header {
+          text-align: center;
+          margin-bottom: 36px;
+        }
+        .testi-badge {
+          display: inline-block;
+          padding: 6px 16px;
+          border-radius: 999px;
+          background: #9a1006;
+          color: #FFFFFF;
+          font-size: 0.75rem;
+          font-weight: 800;
+          letter-spacing: 0.5px;
+          margin-bottom: 10px;
+        }
+        .testi-title {
+          font-size: clamp(1.85rem, 3.5vw, 2.55rem);
+          font-weight: 900;
+          color: #1A1A1A;
+          margin-bottom: 8px;
+          letter-spacing: 0.6px;
+        }
+        .testi-subtitle {
+          color: #4A4A4A;
+          max-width: 520px;
+          margin: 0 auto;
+          font-size: 0.92rem;
+        }
+        .testi-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 18px;
+        }
+        .testi-card {
+          background: #F9F9F9;
+          border-radius: 20px;
+          padding: 20px;
+          border: 1.5px solid #EEEEEE;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          height: 100%;
+          box-sizing: border-box;
+        }
+        .testi-user-row {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          margin-bottom: 12px;
+        }
+        .testi-avatar-img,
+        .testi-avatar-fallback {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          flex-shrink: 0;
+        }
+        .testi-avatar-img {
+          object-fit: cover;
+          border: 2px solid #9a1006;
+        }
+        .testi-avatar-fallback {
+          background: #9a1006;
+          color: #FFFFFF;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: 800;
+          font-size: 0.92rem;
+        }
+        .testi-user-meta {
+          min-width: 0;
+        }
+        .testi-user-meta h4 {
+          font-size: 0.9rem;
+          font-weight: 800;
+          color: #1A1A1A;
+          margin: 0;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+        .testi-menu-tag {
+          font-size: 0.7rem;
+          color: #9a1006;
+          font-weight: 700;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+        .testi-stars {
+          color: #FFC72C;
+          font-size: 0.78rem;
+        }
+        .testi-comment {
+          font-size: 0.84rem;
+          color: #1A1A1A;
+          line-height: 1.55;
+          font-style: italic;
+          margin: 0 0 12px;
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+        }
+        .testi-date {
+          font-size: 0.68rem;
+          color: #777777;
+          font-weight: 600;
+        }
+        .testi-more-btn {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 6px;
+          padding: 9px 18px;
+          border-radius: 999px;
+          font-size: 0.76rem;
+          font-weight: 800;
+          cursor: pointer;
+          width: auto;
+        }
+
+        @media (max-width: 768px) {
+          .testi-section {
+            padding: 52px 12px 60px;
+          }
+          .testi-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+          }
+          .testi-card {
+            padding: 12px;
+            border-radius: 16px;
+          }
+          .testi-avatar-img,
+          .testi-avatar-fallback {
+            width: 32px;
+            height: 32px;
+            font-size: 0.76rem;
+          }
+          .testi-user-meta h4 {
+            font-size: 0.76rem;
+          }
+          .testi-menu-tag {
+            font-size: 0.62rem;
+          }
+          .testi-stars {
+            font-size: 0.68rem;
+          }
+          .testi-comment {
+            font-size: 0.72rem;
+            line-height: 1.42;
+            margin-bottom: 8px;
+          }
+          .testi-date {
+            font-size: 0.6rem;
+          }
+          .testi-more-btn {
+            padding: 8px 16px;
+            font-size: 0.72rem;
+          }
+        }

@@ -1,0 +1,287 @@
+.photos-page-wrapper {
+          min-height: 100vh;
+          background: #141414;
+          padding-bottom: 72px;
+        }
+        .photos-navbar {
+          position: sticky;
+          top: 0;
+          z-index: 200;
+          background: rgba(255, 255, 255, 0.96);
+          backdrop-filter: blur(12px);
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+        .photos-navbar-inner {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 16px;
+          height: 60px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 10px;
+        }
+        .photos-brand {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          cursor: pointer;
+          min-width: 0;
+        }
+        .photos-brand img {
+          height: 34px;
+          width: auto;
+          flex-shrink: 0;
+        }
+        .photos-brand-text {
+          min-width: 0;
+        }
+        .photos-brand-title {
+          font-weight: 800;
+          font-size: 0.92rem;
+          color: #8B0000;
+          line-height: 1.15;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+        .photos-brand-sub {
+          font-size: 0.68rem;
+          color: #777;
+          font-weight: 600;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+        .photos-back-btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 6px;
+          padding: 8px 15px;
+          border-radius: 999px;
+          font-size: 0.78rem;
+          font-weight: 800;
+          cursor: pointer;
+          white-space: nowrap;
+          flex-shrink: 0;
+        }
+        .photos-page-container {
+          max-width: 1200px;
+          margin: 22px auto 0;
+          padding: 0 16px;
+        }
+        .photos-compact-header {
+          display: flex;
+          align-items: flex-end;
+          justify-content: space-between;
+          flex-wrap: wrap;
+          gap: 14px;
+          margin-bottom: 20px;
+          padding-bottom: 16px;
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .photos-badge-row {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          margin-bottom: 6px;
+        }
+        .photos-mini-tag {
+          background: #9a1006;
+          color: #FFFFFF;
+          font-size: 0.66rem;
+          font-weight: 900;
+          padding: 3px 10px;
+          border-radius: 999px;
+          letter-spacing: 0.4px;
+        }
+        .photos-count-pill {
+          background: #FFC72C;
+          color: #1A1A1A;
+          font-size: 0.68rem;
+          font-weight: 900;
+          padding: 3px 10px;
+          border-radius: 999px;
+        }
+        .photos-title-area h1 {
+          font-size: clamp(1.2rem, 2.8vw, 1.65rem);
+          font-weight: 900;
+          color: #FFFFFF;
+          margin: 0 0 4px;
+          line-height: 1.2;
+        }
+        .photos-title-area p {
+          margin: 0;
+          font-size: 0.8rem;
+          color: rgba(255, 255, 255, 0.72);
+        }
+        .photos-segmented-bar {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 5px;
+          background: #202020;
+          padding: 4px;
+          border-radius: 13px;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          width: 100%;
+          max-width: 400px;
+          box-sizing: border-box;
+        }
+        .seg-photo-btn {
+          padding: 8px 6px;
+          border-radius: 9px;
+          font-size: 0.74rem;
+          font-weight: 800;
+          border: none;
+          background: transparent;
+          color: rgba(255, 255, 255, 0.78);
+          cursor: pointer;
+          white-space: nowrap;
+          text-align: center;
+          transition: all 0.2s ease;
+        }
+        .seg-photo-btn.active {
+          background: #9a1006;
+          color: #FFFFFF;
+          box-shadow: 0 3px 10px rgba(154, 16, 6, 0.35);
+        }
+        .all-page-photo-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+          gap: 18px;
+        }
+        .photo-card {
+          border-radius: 18px;
+          overflow: hidden;
+          position: relative;
+          padding-bottom: 76%;
+          box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+          background: #222222;
+          cursor: pointer;
+        }
+        .photo-img {
+          position: absolute;
+          inset: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+        .photo-card:hover .photo-img {
+          transform: scale(1.08);
+        }
+        .photo-uploader-badge {
+          position: absolute;
+          top: 10px;
+          left: 10px;
+          z-index: 2;
+          padding: 4px 10px;
+          border-radius: 999px;
+          font-size: 0.65rem;
+          font-weight: 700;
+          backdrop-filter: blur(6px);
+          max-width: calc(100% - 54px);
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+        .photo-uploader-badge.official {
+          background: #9a1006;
+          color: #FFFFFF;
+        }
+        .photo-uploader-badge.customer {
+          background: rgba(26, 26, 26, 0.85);
+          color: #FFC72C;
+        }
+        .photo-delete-btn {
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          z-index: 3;
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          background: #9a1006;
+          color: #FFFFFF;
+          border: none;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+        }
+        .photo-caption-overlay {
+          position: absolute;
+          inset: auto 0 0 0;
+          padding: 24px 12px 10px;
+          background: linear-gradient(
+            to top,
+            rgba(0, 0, 0, 0.88) 0%,
+            rgba(0, 0, 0, 0.35) 65%,
+            transparent 100%
+          );
+          color: #FFFFFF;
+          display: flex;
+          align-items: flex-end;
+          justify-content: space-between;
+          gap: 8px;
+        }
+        .photo-caption-title {
+          font-weight: 800;
+          font-size: 0.82rem;
+          line-height: 1.25;
+          margin-bottom: 2px;
+          color: #FFFFFF;
+        }
+        .photo-caption-sub {
+          font-size: 0.68rem;
+          color: rgba(255, 255, 255, 0.9);
+          line-height: 1.35;
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+        }
+        .photo-zoom-icon {
+          width: 26px;
+          height: 26px;
+          border-radius: 8px;
+          background: rgba(255, 255, 255, 0.22);
+          color: #FFFFFF;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+        }
+        .photos-empty-state {
+          background: #1E1E1E;
+          color: rgba(255, 255, 255, 0.8);
+          padding: 40px 20px;
+          border-radius: 18px;
+          text-align: center;
+          font-weight: 700;
+        }
+
+        @media (max-width: 640px) {
+          .photos-segmented-bar {
+            max-width: 100%;
+          }
+          .seg-photo-btn {
+            font-size: 0.7rem;
+            padding: 8px 4px;
+          }
+          .all-page-photo-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+          }
+          .photo-card {
+            border-radius: 14px;
+            padding-bottom: 85%;
+          }
+          .photo-caption-title {
+            font-size: 0.72rem;
+          }
+          .photo-caption-sub {
+            font-size: 0.6rem;
+            -webkit-line-clamp: 1;
+          }
+        }

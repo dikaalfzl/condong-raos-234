@@ -1,0 +1,499 @@
+.special-showcase-section {
+          background: #FFFFFF;
+          padding: 28px 24px 48px;
+          display: flex;
+          justify-content: center;
+        }
+
+        .special-showcase-container {
+          width: 100%;
+          max-width: 1100px;
+        }
+
+        .special-board-card {
+          background: transparent;
+        }
+
+        /* === ANIMASI FLOATING GPU-ACCELERATED (TIDAK BENTROK DENGAN HOVER) === */
+        @keyframes smoothFloatA {
+          0%, 100% { transform: translate3d(0, 0px, 0); }
+          50% { transform: translate3d(0, -9px, 0); }
+        }
+
+        @keyframes smoothFloatB {
+          0%, 100% { transform: translate3d(0, 0px, 0); }
+          50% { transform: translate3d(0, -7px, 0); }
+        }
+
+        .float-anim-1 {
+          animation: smoothFloatA 4.6s ease-in-out infinite;
+          will-change: transform;
+        }
+        .float-anim-2 {
+          animation: smoothFloatB 3.9s ease-in-out infinite 0.5s;
+          will-change: transform;
+        }
+        .float-anim-3 {
+          animation: smoothFloatA 5.2s ease-in-out infinite 1s;
+          will-change: transform;
+        }
+        .float-anim-4 {
+          animation: smoothFloatB 4.4s ease-in-out infinite 0.3s;
+          will-change: transform;
+        }
+
+        .smooth-hover-card {
+          transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
+          will-change: transform;
+        }
+
+        .smooth-hover-card:hover {
+          transform: translateY(-6px) scale(1.015);
+        }
+
+        /* === HEADER ATAS === */
+        .special-header-row {
+          display: flex;
+          align-items: flex-start;
+          justify-content: space-between;
+          gap: 20px;
+          margin-bottom: 36px;
+          flex-wrap: wrap;
+        }
+
+        .special-main-heading {
+          font-size: clamp(1.65rem, 3.6vw, 2.55rem);
+          font-weight: 900;
+          color: #1A1A1A;
+          line-height: 1.15;
+          letter-spacing: -0.6px;
+          text-transform: uppercase;
+        }
+
+        .inline-food-circle {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          width: clamp(28px, 3.6vw, 42px);
+          height: clamp(28px, 3.6vw, 42px);
+          border-radius: 50%;
+          background: #9a1006;
+          padding: 3px;
+          vertical-align: middle;
+          margin-left: 4px;
+          box-shadow: 0 4px 12px rgba(154, 16, 6, 0.3);
+        }
+
+        .inline-food-circle img {
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+
+        .wavy-squiggly {
+          width: clamp(48px, 6vw, 76px);
+          height: 16px;
+          vertical-align: middle;
+          margin-left: 6px;
+        }
+
+        /* === GRID 3 KOLOM KOLASE === */
+        .special-collage-grid {
+          display: grid;
+          grid-template-columns: 1fr 1.08fr 1.22fr;
+          column-gap: 26px;
+          row-gap: 28px;
+          align-items: stretch;
+          margin-bottom: 38px;
+        }
+
+        .collage-col-left {
+          display: flex;
+          cursor: pointer;
+        }
+
+        .white-tall-card {
+          width: 100%;
+          background: #F8F8F8;
+          box-shadow: 0 14px 34px rgba(0, 0, 0, 0.08);
+          border-radius: 38px;
+          padding: 20px;
+          position: relative;
+          display: flex;
+          align-items: flex-end;
+          justify-content: center;
+          min-height: 320px;
+          overflow: hidden;
+        }
+
+        .stamp-badge {
+          position: absolute;
+          top: 16px;
+          right: 16px;
+          width: 72px;
+          height: 72px;
+          border-radius: 50%;
+          border: 2px dashed #9a1006;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          font-size: 0.54rem;
+          font-weight: 800;
+          color: #1A1A1A;
+          transform: rotate(12deg);
+          background: #FFC72C;
+          box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+          z-index: 2;
+        }
+
+        .stamp-badge strong {
+          font-size: 0.65rem;
+          font-weight: 900;
+          color: #9a1006;
+        }
+
+        .tall-card-img {
+          width: 95%;
+          height: 250px;
+          object-fit: cover;
+          border-radius: 30px;
+          box-shadow: 0 12px 26px rgba(0, 0, 0, 0.14);
+        }
+
+        .collage-col-center {
+          display: flex;
+          flex-direction: column;
+          gap: 22px;
+        }
+
+        .black-mini-card {
+          width: 72%;
+          margin-left: auto;
+          background: #1A1A1A;
+          border-radius: 32px;
+          padding: 12px;
+          height: 122px;
+          position: relative;
+          cursor: pointer;
+          overflow: hidden;
+          box-shadow: 0 12px 28px rgba(0, 0, 0, 0.16);
+        }
+
+        .yellow-arrow-badge {
+          position: absolute;
+          top: 12px;
+          right: 12px;
+          width: 28px;
+          height: 28px;
+          border-radius: 50%;
+          background: #FFC72C;
+          color: #1A1A1A;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 16px;
+          font-weight: 900;
+          z-index: 2;
+        }
+
+        .mini-card-img-top {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 22px;
+        }
+
+        .maroon-feature-card {
+          width: 100%;
+          background: #9a1006;
+          border-radius: 38px;
+          padding: 26px 24px;
+          color: #FFFFFF;
+          position: relative;
+          overflow: hidden;
+          cursor: pointer;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+          min-height: 225px;
+          box-shadow: 0 16px 36px rgba(154, 16, 6, 0.28);
+        }
+
+        .maroon-card-text {
+          position: relative;
+          z-index: 2;
+          max-width: 78%;
+        }
+
+        .maroon-card-text h3 {
+          font-size: clamp(1.08rem, 2.2vw, 1.38rem);
+          font-weight: 900;
+          line-height: 1.25;
+          letter-spacing: -0.2px;
+          text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .maroon-card-img {
+          position: absolute;
+          bottom: -14px;
+          right: -14px;
+          width: 168px;
+          height: 168px;
+          object-fit: cover;
+          border-radius: 50%;
+          border: 5px solid #FFC72C;
+          box-shadow: 0 10px 26px rgba(0, 0, 0, 0.35);
+        }
+
+        .collage-col-right {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          gap: 20px;
+        }
+
+        .yellow-hero-card {
+          background: #FFC72C;
+          box-shadow: 0 14px 34px rgba(255, 199, 44, 0.32);
+          border-radius: 38px;
+          padding: 18px;
+          height: 245px;
+          position: relative;
+          overflow: hidden;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .combo-maroon-pill {
+          position: absolute;
+          top: 26px;
+          right: 26px;
+          background: #9a1006;
+          color: #FFFFFF;
+          font-size: 0.7rem;
+          font-weight: 900;
+          padding: 6px 14px;
+          border-radius: 999px;
+          letter-spacing: 0.6px;
+          z-index: 2;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+        }
+
+        .yellow-card-img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 26px;
+          box-shadow: 0 8px 22px rgba(0, 0, 0, 0.14);
+        }
+
+        .quote-mini-box {
+          display: flex;
+          align-items: flex-start;
+          gap: 10px;
+          padding: 6px 8px 0;
+        }
+
+        .quote-mark {
+          font-size: 2.5rem;
+          font-weight: 900;
+          color: #9a1006;
+          line-height: 0.8;
+          font-family: Georgia, serif;
+        }
+
+        .quote-mini-box p {
+          font-size: 0.85rem;
+          color: #1A1A1A;
+          line-height: 1.55;
+          font-weight: 700;
+        }
+
+        /* === 3. BANNER HITAM BAWAH === */
+        .special-bottom-black-bar {
+          background: #1A1A1A;
+          border-radius: 36px;
+          padding: 26px 34px;
+          display: grid;
+          grid-template-columns: 1.2fr 2px 1fr;
+          align-items: center;
+          gap: 28px;
+          position: relative;
+          overflow: hidden;
+          color: #FFFFFF;
+          box-shadow: 0 16px 36px rgba(0, 0, 0, 0.16);
+        }
+
+        .black-bar-left h3 {
+          font-size: clamp(1.05rem, 2.2vw, 1.4rem);
+          font-weight: 900;
+          color: #FFFFFF;
+          line-height: 1.25;
+          letter-spacing: -0.3px;
+        }
+
+        .black-bar-divider {
+          width: 2px;
+          height: 54px;
+          background: rgba(255, 255, 255, 0.2);
+        }
+
+        .black-bar-center {
+          display: flex;
+          flex-direction: column;
+          padding-right: 70px;
+        }
+
+        .rating-big-num {
+          font-size: 1.85rem;
+          font-weight: 900;
+          color: #FFC72C;
+          line-height: 1.1;
+        }
+
+        .star-yellow {
+          color: #FFC72C;
+          font-size: 1.4rem;
+        }
+
+        .rating-sub-text {
+          font-size: 0.8rem;
+          font-weight: 700;
+          color: #FFFFFF;
+          opacity: 0.85;
+          margin-top: 2px;
+        }
+
+        .black-bar-corner-img {
+          position: absolute;
+          right: -12px;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 98px;
+          height: 98px;
+          border-radius: 50%;
+          object-fit: cover;
+          border: 4px solid #FFC72C;
+        }
+
+        @media (max-width: 860px) {
+          .special-collage-grid {
+            grid-template-columns: 1fr 1fr;
+            column-gap: 18px;
+            row-gap: 24px;
+          }
+
+          .collage-col-right {
+            grid-column: span 2;
+            gap: 18px;
+          }
+
+          .black-mini-card {
+            width: 100%;
+          }
+
+          .special-bottom-black-bar {
+            grid-template-columns: 1fr;
+            gap: 14px;
+            padding: 24px;
+            border-radius: 30px;
+          }
+
+          .black-bar-divider {
+            display: none;
+          }
+        }
+
+        @media (max-width: 520px) {
+          .special-showcase-section {
+            padding: 16px 14px 32px;
+          }
+
+          .special-collage-grid {
+            grid-template-columns: 1fr 1fr;
+            column-gap: 14px;
+            row-gap: 20px;
+          }
+
+          .collage-col-center {
+            gap: 14px;
+          }
+
+          .white-tall-card {
+            min-height: 245px;
+            padding: 12px;
+            border-radius: 28px;
+          }
+
+          .tall-card-img {
+            height: 188px;
+            border-radius: 22px;
+          }
+
+          .stamp-badge {
+            width: 56px;
+            height: 56px;
+            font-size: 0.45rem;
+            top: 10px;
+            right: 10px;
+          }
+
+          .black-mini-card {
+            height: 90px;
+            border-radius: 24px;
+            padding: 8px;
+          }
+
+          .mini-card-img-top {
+            border-radius: 18px;
+          }
+
+          .maroon-feature-card {
+            min-height: 155px;
+            padding: 16px 14px;
+            border-radius: 28px;
+          }
+
+          .maroon-card-text {
+            max-width: 88%;
+          }
+
+          .maroon-card-text h3 {
+            font-size: 0.92rem;
+            line-height: 1.25;
+          }
+
+          .maroon-card-img {
+            width: 108px;
+            height: 108px;
+            bottom: -12px;
+            right: -12px;
+            border-width: 4px;
+          }
+
+          .yellow-hero-card {
+            height: 195px;
+            border-radius: 28px;
+            padding: 12px;
+          }
+
+          .yellow-card-img {
+            border-radius: 20px;
+          }
+
+          .combo-maroon-pill {
+            top: 20px;
+            right: 20px;
+          }
+
+          .black-bar-corner-img {
+            width: 76px;
+            height: 76px;
+            right: -10px;
+          }
+        }
