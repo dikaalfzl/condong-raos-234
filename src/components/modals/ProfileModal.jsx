@@ -44,6 +44,17 @@ export default function ProfileModal({ isOpen, onClose, onProfileUpdated }) {
   const [loadingReviews, setLoadingReviews] = useState(false);
 
   useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
+
+  useEffect(() => {
     const fallbackName =
       profile?.full_name ||
       user?.user_metadata?.full_name ||
