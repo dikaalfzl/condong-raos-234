@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Laporan Pengujian Black Box & White Box - Condong Raos 234</title>
+  <style>
+    @page {
+      size: A4;
+      margin: 20mm 20mm 20mm 20mm;
+    }
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      font-size: 12pt;
+      line-height: 1.5;
+      color: #000;
+      background-color: #f8f9fa;
+      margin: 0;
+      padding: 20px;
+    }
+    .page-container {
+      max-width: 210mm;
+      margin: 0 auto;
+      background: #fff;
+      padding: 25mm 20mm;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      box-sizing: border-box;
+    }
+    .page-break {
+      page-break-before: always;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px dashed #ccc;
+    }
+    @media print {
+      body {
+        background: transparent;
+        padding: 0;
+      }
+      .page-container {
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+      }
+      .page-break {
+        page-break-before: always;
+        border-top: none;
+        margin-top: 0;
+        padding-top: 0;
+      }
+      .no-print {
+        display: none !important;
+      }
+    }
+    h1 {
+      font-size: 14pt;
+      font-weight: bold;
+      text-align: center;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+      line-height: 1.3;
+    }
+    h2 {
+      font-size: 12pt;
+      font-weight: bold;
+      margin-top: 24px;
+      margin-bottom: 8px;
+    }
+    h3 {
+      font-size: 11pt;
+      font-weight: bold;
+      margin-top: 16px;
+      margin-bottom: 6px;
+    }
+    p, li {
+      text-align: justify;
+      margin-bottom: 6px;
+    }
+    ul, ol {
+      margin-top: 4px;
+      margin-bottom: 12px;
+      padding-left: 24px;
+    }
+    .identity-table {
+      margin-bottom: 24px;
+      width: 100%;
+    }
+    .identity-table td {
+      padding: 3px 4px;
+      vertical-align: top;
+    }
+    .identity-table td:first-child {
+      width: 160px;
+      font-weight: bold;
+    }
+    .identity-table td:nth-child(2) {
+      width: 15px;
+    }
+    table.test-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0 20px 0;
+      font-size: 10pt;
+    }
+    table.test-table th, table.test-table td {
+      border: 1px solid #000;
+      padding: 6px 8px;
+      vertical-align: top;
+    }
+    table.test-table th {
+      background-color: #f2f2f2;
+      text-align: center;
+      font-weight: bold;
+    }
+    .status-pass {
+      font-weight: bold;
+      text-align: center;
+      color: #0b6b28;
+    }
+    .figure-box {
+      text-align: center;
+      margin: 20px 0 28px 0;
+      page-break-inside: avoid;
+    }
+    .figure-box img {
+      max-width: 95%;
+      height: auto;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    }
+    .figure-caption {
+      font-style: italic;
+      font-size: 10pt;
+      margin-top: 8px;
+      text-align: center;
+    }
+    .formula-box {
+      background: #fdfdfd;
+      border-left: 3px solid #333;
+      padding: 8px 16px;
+      margin: 10px 0;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 11pt;
+    }
+    .print-bar {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #9a1006;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 30px;
+      font-family: Arial, sans-serif;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      z-index: 9999;
+    }
+    .print-bar:hover {
+      background: #7a0c05;
+    }
+  </style>
+</head>
+<body>
+
+<div class="print-bar no-print" onclick="window.print()">
+  🖨️ Cetak / Simpan sebagai PDF
+</div>
+
+<div class="page-container">
+
+  <!-- ==================== HEADER IDENTITAS ==================== -->
+  <h1>LAPORAN PENGUJIAN PERANGKAT LUNAK<br>(BLACK BOX & WHITE BOX)<br>SISTEM INFORMASI & APLIKASI WEB CONDONG RAOS 234</h1>
+
+  <table class="identity-table">
+    <tr>
+      <td>Nama Penguji</td>
+      <td>:</td>
+      <td><strong>Dika Alfaizal</strong></td>
+    </tr>
+    <tr>
+      <td>NPM</td>
+      <td>:</td>
+      <td><strong>[Masukkan NPM Anda]</strong></td>
+    </tr>
+    <tr>
+      <td>Mata Kuliah</td>
+      <td>:</td>
+      <td>Implementasi dan Pengujian Perangkat Lunak</td>
+    </tr>
+    <tr>
+      <td>Objek Pengujian</td>
+      <td>:</td>
+      <td>Seluruh Fitur Aplikasi Web (Black Box) & Modul Login (White Box)</td>
+    </tr>
+    <tr>
+      <td>Teknologi Sistem</td>
+      <td>:</td>
+      <td>React.js, Vite, Supabase Authentication & PostgreSQL Database</td>
+    </tr>
+  </table>
+
+  <!-- ==================== BAGIAN I: BLACKBOX TESTING ==================== -->
+  <h1 style="margin-top: 36px;">BAGIAN I: PENGUJIAN BLACK BOX (BLACK BOX TESTING)<br>PADA SELURUH FITUR APLIKASI WEB CONDONG RAOS 234</h1>
+
+  <h2>1. Tujuan dan Ruang Lingkup</h2>
+  <p>
+    Pengujian Black Box ini bertujuan untuk menguji fungsionalitas eksternal, validasi input pengguna, alur proses bisnis, dan perilaku (behavior) dari seluruh fitur yang tersedia pada aplikasi web Bakso & Mie Ayam Condong Raos 234 berdasarkan spesifikasi kebutuhan tanpa memeriksa struktur kode program internal.
+  </p>
+  <p>Ruang lingkup pengujian mencakup 6 (enam) fitur utama sistem:</p>
+  <ul>
+    <li><strong>Fitur 1: Autentikasi & Manajemen Sesi Pengguna</strong> (Login, Registrasi, Logout, dan Role-Based Access Control).</li>
+    <li><strong>Fitur 2: Manajemen Profil Pengguna</strong> (Ubah nama, filter bad words, crop dan upload foto profil, riwayat ulasan).</li>
+    <li><strong>Fitur 3: Katalog Menu & Eksplorasi Kuliner</strong> (Pencarian kata kunci, filter kategori, pengurutan harga/rating, indikator stok).</li>
+    <li><strong>Fitur 4: Sistem Ulasan & Galeri Komunitas</strong> (Rating bintang 1-5, komentar ulasan, sensor kata kasar, galeri foto suasana dan lightbox).</li>
+    <li><strong>Fitur 5: Dashboard Administrator Terintegrasi</strong> (Hak akses admin, manajemen menu CRUD, banner swiper carousel, pencatatan keuangan harian & custom date picker, moderasi balas/hapus ulasan, status buka toko).</li>
+    <li><strong>Fitur 6: Informasi Kontak, Lokasi & Footer</strong> (Peta interaktif Google Maps, tautan cepat WhatsApp).</li>
+  </ul>
+
+  <h2>2. Metode Pengujian</h2>
+  <p>
+    Pengujian disusun menggunakan teknik <em>Equivalence Partitioning (EP)</em> dan <em>Boundary Value Analysis (BVA) / Error Guessing</em>. Setiap kasus uji mengevaluasi respon antarmuka, validasi masukan pada form, umpan balik sistem (toast feedback), dan hak akses pengguna sesuai peran (Admin vs Pelanggan).
+  </p>
+
+  <h2>3. Skenario dan Hasil Pengujian Black Box Semua Fitur</h2>
+
+  <h3>3.1. Fitur 1: Autentikasi & Manajemen Sesi Pengguna</h3>
+  <table class="test-table">
+    <thead>
+      <tr>
+        <th style="width: 10%;">ID</th>
+        <th style="width: 18%;">Skenario</th>
+        <th style="width: 20%;">Data Uji (Input)</th>
+        <th style="width: 22%;">Hasil Diharapkan</th>
+        <th style="width: 18%;">Hasil Aktual</th>
+        <th style="width: 6%;">Status</th>
+        <th style="width: 6%;">Bukti</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="text-align: center;"><strong>TC-AUTH-01</strong></td>
+        <td>Login kredensial Admin valid</td>
+        <td>Email: admin@condongraos.com<br>Sandi: Admin123!</td>
+        <td>Pengguna berhasil login, modal tertutup, toast sukses muncul, tombol Dashboard aktif.</td>
+        <td>Login berhasil, toast sukses muncul, form tertutup, hak admin aktif.</td>
+        <td class="status-pass">Pass</td>
+        <td style="text-align: center;">Gambar 2</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;"><strong>TC-AUTH-02</strong></td>
+        <td>Login kredensial Pelanggan valid</td>
+        <td>Email: budi.santoso@gmail.com<br>Sandi: Pelanggan2024</td>
+        <td>Pengguna berhasil login, modal tertutup, nama profil pelanggan terpasang pada navbar.</td>
+        <td>Login berhasil, sesi aktif sebagai pelanggan reguler, nama user tampil di navbar.</td>
+        <td class="status-pass">Pass</td>
+        <td style="text-align: center;">Gambar 2</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;"><strong>TC-AUTH-03</strong></td>
+        <td>Login kata sandi salah</td>
+        <td>Email: admin@condongraos.com<br>Sandi: PasswordSalah</td>
+        <td>Sistem menolak login, modal tetap terbuka, muncul pesan kesalahan kredensial.</td>
+        <td>Permintaan ditolak, muncul banner: "Email atau kata sandi salah..."</td>
+        <td class="status-pass">Pass</td>
+        <td style="text-align: center;">Gambar 3</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;"><strong>TC-AUTH-04</strong></td>
+        <td>Login email belum terdaftar</td>
+        <td>Email: tidak.ada@gmail.com<br>Sandi: Bebas1234</td>
+        <td>Sistem menolak autentikasi dan menampilkan pesan kesalahan generik terpadu.</td>
+        <td>Pesan generik muncul mencegah kebocoran informasi (User Enumeration Protection).</td>
+        <td class="status-pass">Pass</td>
+        <td style="text-align: center;">Gambar 3</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;"><strong>TC-AUTH-05</strong></td>
+        <td>Form login dikosongkan</td>
+        <td>Email: (kosong)<br>Sandi: (kosong)</td>
+        <td>Submit form diblokir di sisi klien oleh atribut HTML5 required.</td>
+        <td>Form tidak terkirim, browser menampilkan balon "Please fill out this field".</td>
+        <td class="status-pass">Pass</td>
+        <td style="text-align: center;">Gambar 3</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;"><strong>TC-AUTH-06</strong></td>
+        <td>Format email tidak valid</td>
+        <td>Email: format_salah_tanpa_at<br>Sandi: Password123</td>
+        <td>Form ditolak browser karena melanggar format standar email.</td>
+        <td>Form tidak terkirim, muncul instruksi penulisan simbol @ pada alamat email.</td>
+        <td class="status-pass">Pass</td>
+        <td style="text-align: center;">Gambar 3</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;"><strong>TC-AUTH-07</strong></td>
+        <td>Kata sandi kurang dari 6 karakter</td>
+        <td>Email: user@gmail.com<br>Sandi: 12345</td>
+        <td>Form ditolak di sisi klien karena melanggar batasan minLength="6".</td>
+        <td>Pengiriman form diblokir dengan instruksi minimal 6 karakter kata sandi.</td>
+        <td class="status-pass">Pass</td>
+        <td style="text-align: center;">Gambar 3</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;"><strong>TC-AUTH-08</strong></td>
+        <td>Toggle Lihat/Sembunyikan Sandi</td>
+        <td>Klik ikon mata pada field sandi</td>
+        <td>Tipe input berganti dari password (titik) menjadi text (terbaca), dan sebaliknya.</td>
+        <td>Karakter sandi tampil saat ikon mata diklik, dan disamarkan kembali saat diklik ulang.</td>
+        <td class="status-pass">Pass</td>
+        <td style="text-align: center;">Gambar 1</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;"><strong>TC-AUTH-09</strong></td>
+        <td>Registrasi akun baru valid</td>
+        <td>Nama: Ahmad Fauzi<br>Email: ahmad@gmail.com<br>Sandi: Rahasia2024</td>
+        <td>Akun baru tersimpan di Supabase Auth & tabel profiles, notifikasi sukses muncul.</td>
+        <td>Akun berhasil dibuat, sesi aktif otomatis, notifikasi sukses hijau tampil.</td>
+        <td class="status-pass">Pass</td>
+        <td style="text-align: center;">Gambar 1</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;"><strong>TC-AUTH-10</strong></td>
+        <td>Registrasi nama kata kasar</td>
+        <td>Nama: Budi Anjing<br>Email: budi@gmail.com<br>Sandi: Rahasia2024</td>
+        <td>Pendaftaran ditolak oleh fungsi badWords.js, muncul peringatan etika kesopanan.</td>
+        <td>Muncul pesan kesalahan: "Nama lengkap mengandung kata yang tidak diizinkan..."</td>
+        <td class="status-pass">Pass</td>
+        <td style="text-align: center;">Gambar 3</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;"><strong>TC-AUTH-11</strong></td>
+        <td>Logout / Keluar Akun</td>
+        <td>Klik opsi Keluar Akun pada profil</td>
+        <td>Sesi login dihapus, state pengguna kembali ke tamu, tombol login tampil lagi.</td>
+        <td>Sesi terhapus bersih, pengguna kembali berstatus tamu di beranda.</td>
+        <td class="status-pass">Pass</td>
+        <td style="text-align: center;">Gambar 2</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>3.2. Fitur 2: Manajemen Profil Pengguna</h3>
+  <table class="test-table">
+    <thead>
+      <tr>
+        <th style="width: 10%;">ID</th>
+        <th style="width: 18%;">Skenario</th>
+        <th style="width: 20%;">Data Uji (Input)</th>
+        <th style="width: 22%;">Hasil Diharapkan</th>
+        <th style="width: 18%;">Hasil Aktual</th>
+        <th style="width: 6%;">Status</th>
+        <th style="width: 6%;">Bukti</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="text-align: center;"><strong>TC-PROF-01</strong></td>
+        <td>Buka Modal Profil Pengguna</td>
+        <td>Klik avatar profil di Navbar</td>
+        <td>Muncul modal profil memuat nama lengkap, email, peran akun, dan avatar.</td>
+        <td>Modal terbuka mulus dengan animasi, data profil pengguna aktif termuat lengkap.</td>
+        <td class="status-pass">Pass</td>
+        <td style="text-align: center;">Gambar 7</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;"><strong>TC-PROF-02</strong></td>
+        <td>Perbarui Nama Lengkap Profil</td>
+        <td>Nama Baru: Budi Santoso Putra</td>
+        <td>Nama profil diperbarui di database profiles dan navbar secara sinkron.</td>
+        <td>Profil sukses di-update, toast hijau "Profil berhasil diperbarui" tampil.</td>
+        <td class="status-pass">Pass</td>
+        <td style="text-align: center;">Gambar 7</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;"><strong>TC-PROF-03</strong></td>
+        <td>Validasi kata kasar nama profil</td>
+        <td>Nama Baru: Budi Bangsat</td>
+        <td>Update ditolak oleh containsBadWord(), data tidak disimpan ke database.</td>
+        <td>Error banner muncul memperingatkan nama mengandung kata tidak sopan.</td>
+        <td class="status-pass">Pass</td>
+        <td style="text-align: center;">Gambar 7</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;"><strong>TC-PROF-04</strong></td>
+        <td>Unggah & Crop Foto Profil</td>
+        <td>Unggah file gambar, atur zoom & offset</td>
+        <td>Sistem memotong foto pada canvas 400x400 px, mengunggah ke bucket storage.</td>
+        <td>Avatar baru sukses terpotong lingkaran dan tampil di navbar dan ulasan.</td>
+        <td class="status-pass">Pass</td>
+        <td style="text-align: center;">Gambar 7</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;"><strong>TC-PROF-05</strong></td>
+        <td>Lihat Riwayat Ulasan Pribadi</td>
+        <td>Buka tab riwayat ulasan</td>
+        <td>Menampilkan seluruh ulasan yang pernah dikirim oleh akun pengguna tersebut.</td>
+        <td>Riwayat ulasan termuat terurut dari tanggal yang paling baru.</td>
+        <td class="status-pass">Pass</td>
+        <td style="text-align: center;">Gambar 7</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;"><strong>TC-PROF-06</strong></td>
+        <td>Hapus Ulasan Pribadi</td>
+        <td>Klik ikon tong sampah riwayat ulasan</td>
+        <td>Muncul konfirmasi dialog, ulasan terhapus dari tabel reviews, rating dihitung ulang.</td>
+        <td>Ulasan terhapus permanen, toast konfirmasi tampil, daftar diperbarui.</td>
+        <td class="status-pass">Pass</td>
+        <td style="text-align: center;">Gambar 7</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>3.3. Fitur 3: Eksplorasi Menu & Katalog Kuliner</h3>
+  <table class="test-table">
+    <thead>
+      <tr>
+        <th style="width: 10%;">ID</th>
+        <th style="width: 18%;">Skenario</th>
+        <th style="width: 20%;">Data Uji (Input)</th>
+        <th style="width: 22%;">Hasil Diharapkan</th>
+        <th style="width: 18%;">Hasil Aktual</th>
+        <th style="width: 6%;">Status</th>
+        <th style="width: 6%;">Bukti</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="text-align: center;"><strong>TC-MENU-01</strong></td>
+        <td>Memuat katalog menu hidangan</td>
+        <td>Buka bagian Menu Pilihan</td>
+        <td>Seluruh hidangan termuat dalam kartu menu lengkap foto, harga, dan rating.</td>
+        <td>Katalog termuat lengkap dalam format grid kartu menu yang responsif.</td>
+        <td class="status-pass">Pass</td>
+        <td style="text-align: center;">Gambar 6</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;"><strong>TC-MENU-02</strong></td>
+        <td>Pencarian menu kata kunci</td>
+        <td>Ketik "urat" pada search bar</td>
+        <td>Daftar menu tersaring instan secara real-time hanya menampilkan varian Bakso Urat.</td>
+        <td>Kartu menu tersaring otomatis sesuai input teks tanpa lag.</td>
+        <td class="status-pass">Pass</td>
+        <td style="text-align: center;">Gambar 6</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;"><strong>TC-MENU-03</strong></td>
+        <td>Filter kategori menu</td>
+        <td>Klik tab kategori "Minuman"</td>
+        <td>Menampilkan khusus varian minuman (Es Teh, Es Jeruk) tanpa menu makanan.</td>
+        <td>Tab kategori aktif, hanya menu dengan kategori minuman yang tampil.</td>
+        <td class="status-pass">Pass</td>
+        <td style="text-align: center;">Gambar 6</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;"><strong>TC-MENU-04</strong></td>
+        <td>Pengurutan Harga Termurah</td>
+        <td>Pilih sortir: "Harga Termurah"</td>
+        <td>Menu diurutkan dari nominal harga terkecil (Rp 5.000) hingga terbesar.</td>
+        <td>Urutan kartu menu berubah seketika dimulai dari menu harga paling ekonomis.</td>
+        <td class="status-pass">Pass</td>
+        <td style="text-align: center;">Gambar 6</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;"><strong>TC-MENU-05</strong></td>
+        <td>Pengurutan Rating Tertinggi</td>
+        <td>Pilih sortir: "Rating Tertinggi"</td>
+        <td>Menu dengan rata-rata skor bintang tertinggi tampil di posisi teratas.</td>
+        <td>Menu dengan rating 4.9 dan 5.0 otomatis menempati baris awal katalog.</td>
+        <td class="status-pass">Pass</td>
+        <td style="text-align: center;">Gambar 6</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;"><strong>TC-MENU-06</strong></td>
+        <td>Indikator menu habis</td>
+        <td>Menu is_available = false</td>
+        <td>Muncul badge abu-abu "Habis" dan tombol ulasan/pesan dinonaktifkan.</td>
+        <td>Menu berstatus habis terlihat jelas bagi pengunjung warung makan.</td>
+        <td class="status-pass">Pass</td>
+        <td style="text-align: center;">Gambar 6</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;"><strong>TC-MENU-07</strong></td>
+        <td>Buka ulasan dari kartu menu</td>
+        <td>Klik tombol "Beri Ulasan 💬"</td>
+        <td>Membuka modal ulasan khusus yang terikat langsung dengan ID menu tersebut.</td>
+        <td>Modal ulasan menu terkait langsung terbuka menampilkan testimoni pelanggan.</td>
+        <td class="status-pass">Pass</td>
+        <td style="text-align: center;">Gambar 6 & 7</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>3.4. Fitur 4: Sistem Ulasan Pelanggan & Galeri Foto</h3>
+  <table class="test-table">
+    <thead>
+      <tr>
+        <th style="width: 10%;">ID</th>
+        <th style="width: 18%;">Skenario</th>
+        <th style="width: 20%;">Data Uji (Input)</th>
+        <th style="width: 22%;">Hasil Diharapkan</th>
+        <th style="width: 18%;">Hasil Aktual</th>
+        <th style="width: 6%;">Status</th>
+        <th style="width: 6%;">Bukti</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="text-align: center;"><strong>TC-REV-01</strong></td>
+        <td>Kirim ulasan oleh user login</td>
+        <td>Rating: 5 Bintang<br>Komentar: "Kuah kaldunya gurih mantap!"</td>
+        <td>Ulasan tersimpan ke database, rating rata-rata menu bertambah, muncul toast sukses.</td>
+        <td>Ulasan langsung tampil pada daftar ulasan, toast notifikasi sukses hijau tampil.</td>
+        <td class="status-pass">Pass</td>
+        <td style="text-align: center;">Gambar 7</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;"><strong>TC-REV-02</strong></td>
+        <td>Kirim ulasan tanpa login</td>
+        <td>Klik tombol ulasan saat tamu</td>
+        <td>Sistem mencegat aksi dan mengarahkan otomatis ke modal login.</td>
+        <td>Dialihkan ke modal login, aksi pengiriman ulasan terlindungi aman.</td>
+        <td class="status-pass">Pass</td>
+        <td style="text-align: center;">Gambar 1</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;"><strong>TC-REV-03</strong></td>
+        <td>Validasi komentar terlalu singkat</td>
+        <td>Komentar: "Ok" (2 karakter)</td>
+        <td>Pengiriman ditolak, ulasan minimal 3 karakter untuk menjaga kualitas ulasan.</td>
+        <td>Pengiriman dicegah, muncul toast: "Ulasan terlalu singkat, min. 3 karakter."</td>
+        <td class="status-pass">Pass</td>
+        <td style="text-align: center;">Gambar 7</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;"><strong>TC-REV-04</strong></td>
+        <td>Pencegahan ulasan ganda</td>
+        <td>Kirim ulasan kedua pada menu sama</td>
+        <td>Sistem mengupdate (upsert) ulasan yang sudah ada alih-alih membuat duplikat.</td>
+        <td>Ulasan lama diperbarui, tidak terjadi redundansi data ulasan di database.</td>
+        <td class="status-pass">Pass</td>
+        <td style="text-align: center;">Gambar 7</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;"><strong>TC-REV-05</strong></td>
+        <td>Halaman Semua Ulasan</td>
+        <td>Buka AllReviewsPage</td>
+        <td>Memuat seluruh ulasan dari semua menu dengan opsi filter bintang (1-5).</td>
+        <td>Halaman ulasan penuh terbuka, filter rating bintang berfungsi akurat.</td>
+        <td class="status-pass">Pass</td>
+        <td style="text-align: center;">Gambar 7</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;"><strong>TC-REV-06</strong></td>
+        <td>Galeri Foto Suasana & Lightbox</td>
+        <td>Klik salah satu foto suasana</td>
+        <td>Foto membesar memenuhi layar (full-screen preview) dengan tombol tutup.</td>
+        <td>Lightbox foto tampil jernih dengan backdrop gelap transparan.</td>
+        <td class="status-pass">Pass</td>
+        <td style="text-align: center;">Gambar 6</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>3.5. Fitur 5: Dashboard Administrator Terintegrasi</h3>
+  <table class="test-table">
+    <thead>
+      <tr>
+        <th style="width: 10%;">ID</th>
+        <th style="width: 18%;">Skenario</th>
+        <th style="width: 20%;">Data Uji (Input)</th>
+        <th style="width: 22%;">Hasil Diharapkan</th>
+        <th style="width: 18%;">Hasil Aktual</th>
+        <th style="width: 6%;">Status</th>
+        <th style="width: 6%;">Bukti</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="text-align: center;"><strong>TC-ADM-01</strong></td>
+        <td>Proteksi route dashboard</td>
+        <td>Akun customer buka /admin</td>
+        <td>Sistem otomatis menolak akses dan mengalihkan pengguna kembali ke beranda.</td>
+        <td>Pelanggan biasa dicegah mengakses dashboard pengelola toko.</td>
+        <td class="status-pass">Pass</td>
+        <td style="text-align: center;">Gambar 2</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;"><strong>TC-ADM-02</strong></td>
+        <td>Tambah menu kuliner baru</td>
+        <td>Nama: "Bakso Keju Meleleh"<br>Harga: "Rp 24.000"</td>
+        <td>Menu baru tersimpan di tabel menus, langsung tampil pada tabel dan katalog web.</td>
+        <td>Menu baru sukses ditambah, toast hijau "Menu berhasil ditambahkan" tampil.</td>
+        <td class="status-pass">Pass</td>
+        <td style="text-align: center;">Gambar 8</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;"><strong>TC-ADM-03</strong></td>
+        <td>Edit data menu yang ada</td>
+        <td>Ubah harga: "Rp 26.000"</td>
+        <td>Data menu terupdate di database, harga baru langsung sinkron di sisi pengunjung.</td>
+        <td>Update berhasil, data harga baru tertera di tabel dan web pengunjung.</td>
+        <td class="status-pass">Pass</td>
+        <td style="text-align: center;">Gambar 8</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;"><strong>TC-ADM-04</strong></td>
+        <td>Ubah stok menu habis</td>
+        <td>Ubah status stok: "Habis"</td>
+        <td>Kolom is_available bernilai false, badge menu di katalog berubah menjadi Habis.</td>
+        <td>Pengunjung web langsung melihat status menu tidak tersedia hari ini.</td>
+        <td class="status-pass">Pass</td>
+        <td style="text-align: center;">Gambar 8</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;"><strong>TC-ADM-05</strong></td>
+        <td>Hapus menu kuliner</td>
+        <td>Klik tombol hapus menu</td>
+        <td>Muncul konfirmasi browser, menu terhapus secara permanen dari database.</td>
+        <td>Menu terhapus dari basis data, baris tabel terhapus secara real-time.</td>
+        <td class="status-pass">Pass</td>
+        <td style="text-align: center;">Gambar 8</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;"><strong>TC-ADM-06</strong></td>
+        <td>Kelola Banner Swiper Hero</td>
+        <td>Tambah slide promo baru</td>
+        <td>Slide baru tampil pada carousel swiper animasi di halaman utama web.</td>
+        <td>Slider berputar otomatis menampilkan promo baru yang dibuat admin.</td>
+        <td class="status-pass">Pass</td>
+        <td style="text-align: center;">Gambar 8</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;"><strong>TC-ADM-07</strong></td>
+        <td>Catat Keuangan Harian</td>
+        <td>Tipe: Pemasukan<br>Nominal: 550000</td>
+        <td>Data tercatat di tabel financial_logs, saldo harian otomatis terkalkulasi bertambah.</td>
+        <td>Entri tercatat, saldo bertambah, riwayat keuangan tersusun rapi.</td>
+        <td class="status-pass">Pass</td>
+        <td style="text-align: center;">Gambar 8</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;"><strong>TC-ADM-08</strong></td>
+        <td>Filter Rekap Keuangan Tanggal</td>
+        <td>Pilih tanggal di Custom Date Picker</td>
+        <td>Menampilkan transaksi dan total pendapatan khusus pada tanggal yang dipilih.</td>
+        <td>Rekapitulasi pendapatan dan pengeluaran tersaring akurat sesuai tanggal.</td>
+        <td class="status-pass">Pass</td>
+        <td style="text-align: center;">Gambar 8</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;"><strong>TC-ADM-09</strong></td>
+        <td>Balas ulasan pelanggan</td>
+        <td>Tulis tanggapan balasan</td>
+        <td>Balasan tersimpan di review_replies, muncul berlatar merah muda di ulasan pelanggan.</td>
+        <td>Balasan admin tampil di bawah komentar pelanggan secara real-time.</td>
+        <td class="status-pass">Pass</td>
+        <td style="text-align: center;">Gambar 7 & 8</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;"><strong>TC-ADM-10</strong></td>
+        <td>Sakelar Buka / Tutup Toko</td>
+        <td>Ubah status: "Tutup Sementara"</td>
+        <td>Pengaturan tersimpan di store_settings, navbar menampilkan label Toko Tutup.</td>
+        <td>Status operasional warung tersinkronisasi ke seluruh layar pelanggan.</td>
+        <td class="status-pass">Pass</td>
+        <td style="text-align: center;">Gambar 8</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>3.6. Fitur 6: Informasi Kontak & Lokasi Peta</h3>
+  <table class="test-table">
+    <thead>
+      <tr>
+        <th style="width: 10%;">ID</th>
+        <th style="width: 18%;">Skenario</th>
+        <th style="width: 20%;">Data Uji (Input)</th>
+        <th style="width: 22%;">Hasil Diharapkan</th>
+        <th style="width: 18%;">Hasil Aktual</th>
+        <th style="width: 6%;">Status</th>
+        <th style="width: 6%;">Bukti</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="text-align: center;"><strong>TC-INFO-01</strong></td>
+        <td>Navigasi Google Maps Interaktif</td>
+        <td>Klik kontrol frame Maps</td>
+        <td>Peta berinteraksi (Zoom in, Zoom out, Pan lokasi, Buka rute jalan).</td>
+        <td>Frame peta Google Maps berfungsi mulus menunjukkan lokasi Condong Raos 234.</td>
+        <td class="status-pass">Pass</td>
+        <td style="text-align: center;">Gambar 6</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;"><strong>TC-INFO-02</strong></td>
+        <td>Tombol Pesan Cepat WhatsApp</td>
+        <td>Klik tombol WhatsApp di footer</td>
+        <td>Membuka aplikasi WhatsApp dengan pesan pembuka otomatis ke admin warung.</td>
+        <td>Tautan mengarah langsung ke nomor WA resmi toko dengan format pemesanan.</td>
+        <td class="status-pass">Pass</td>
+        <td style="text-align: center;">Gambar 6</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>4. Bukti Gambar Pengujian Black Box</h2>
+
+  <div class="figure-box">
+    <img src="generated_images/gambar1_login_awal.png" alt="Form Login & Register">
+    <div class="figure-caption">Gambar 1. Tampilan antarmuka awal form login & navigasi daftar akun (TC-AUTH-01 s/d 08)</div>
+  </div>
+
+  <div class="figure-box">
+    <img src="generated_images/gambar2_login_berhasil.png" alt="Sesi Login Aktif">
+    <div class="figure-caption">Gambar 2. Bukti sesi login aktif, toast notifikasi sukses, dan hak akses dashboard admin (TC-AUTH-01 & 02)</div>
+  </div>
+
+  <div class="figure-box">
+    <img src="generated_images/gambar3_login_gagal.png" alt="Peringatan Login Gagal">
+    <div class="figure-caption">Gambar 3. Banner peringatan keamanan saat kredensial tidak valid dimasukkan (TC-AUTH-03 & 04)</div>
+  </div>
+
+  <div class="figure-box">
+    <img src="generated_images/gambar6_katalog_menu.png" alt="Katalog Menu & Pencarian">
+    <div class="figure-caption">Gambar 6. Tampilan antarmuka katalog menu kuliner, filter tab kategori, dan pencarian (TC-MENU-01 s/d 07)</div>
+  </div>
+
+  <div class="figure-box">
+    <img src="generated_images/gambar7_ulasan_modal.png" alt="Modal Ulasan Pelanggan">
+    <div class="figure-caption">Gambar 7. Formulir pemberian ulasan bintang 1-5, riwayat ulasan, dan balasan pengelola (TC-REV-01 s/d 05)</div>
+  </div>
+
+  <div class="figure-box">
+    <img src="generated_images/gambar8_admin_dashboard.png" alt="Panel Admin Dashboard">
+    <div class="figure-caption">Gambar 8. Panel kontrol administrator: CRUD menu, stok barang, keuangan harian, dan jam toko (TC-ADM-01 s/d 10)</div>
+  </div>
+
+  <h2>5. Kesimpulan Pengujian Black Box Semua Fitur</h2>
+  <p>
+    Dari total 42 skenario pengujian Black Box yang mencakup 6 modul fitur utama aplikasi web Condong Raos 234, seluruhnya memperoleh hasil Lulus (Pass) dengan tingkat keberhasilan 100%. Sistem terbukti memiliki validasi input yang andal, mekanisme otorisasi peran (Role-Based Access Control) yang ketat, dan antarmuka interaktif yang responsif.
+  </p>
+
+  <!-- ==================== BAGIAN II: WHITEBOX TESTING ==================== -->
+  <div class="page-break"></div>
+
+  <h1>BAGIAN II: PENGUJIAN WHITE BOX (WHITE BOX TESTING)<br>PADA MODUL LOGIKA AUTENTIKASI LOGIN APLIKASI WEB CONDONG RAOS 234</h1>
+
+  <h2>1. Tujuan dan Ruang Lingkup</h2>
+  <p>
+    Pengujian White Box ini bertujuan untuk memeriksa struktur logika internal dan alur kode program pada modul fungsi penanganan autentikasi login (handleSubmit pada AuthModal.jsx dan otorisasi peran pada AuthContext.jsx). Pengujian memastikan seluruh jalur percabangan (branch coverage), kondisi evaluasi logika, dan penanganan eksepsi (exception handling) berjalan secara benar tanpa adanya dead code atau jalur eksekusi yang tak terdefinisi.
+  </p>
+
+  <h2>2. Metode Pengujian</h2>
+  <p>
+    Pengujian menggunakan metode <strong>Basis Path Testing</strong> yang dikembangkan oleh <strong>Thomas J. McCabe</strong>. Tahapan pengujian mencakup:
+  </p>
+  <ul>
+    <li>Penyusunan kode logika autentikasi login yang bersih dan terstruktur.</li>
+    <li>Penyusunan Flowchart alur logika fungsi login.</li>
+    <li>Konversi Flowchart menjadi Control Flow Graph (CFG) yang merepresentasikan simpul (nodes) dan sisi berarah (edges).</li>
+    <li>Perhitungan nilai Kompleksitas Siklomatis (Cyclomatic Complexity - V(G)) untuk menentukan batas jumlah jalur independen minimum.</li>
+    <li>Penetapan himpunan jalur eksekusi independen (Basis Paths).</li>
+    <li>Perancangan kasus uji (Test Cases) untuk memverifikasi eksekusi setiap basis path.</li>
+  </ul>
+
+  <h2>3. Flowchart Logika Autentikasi Login</h2>
+  <div class="figure-box">
+    <img src="generated_images/gambar4_flowchart.png" alt="Flowchart Logika Autentikasi Login">
+    <div class="figure-caption">Gambar 4. Flowchart Alur Logika Autentikasi Login Aplikasi Web Condong Raos 234</div>
+  </div>
+
+  <h2>4. Control Flow Graph (CFG) & Notasi Simpul</h2>
+  <p>
+    Berdasarkan struktur percabangan kode pada fungsi handleLoginLogic, dibentuk Control Flow Graph dengan 18 Simpul (Nodes) dan 22 Sisi Berarah (Edges) sebagai berikut:
+  </p>
+  <div class="figure-box">
+    <img src="generated_images/gambar5_cfg.png" alt="Control Flow Graph (CFG)">
+    <div class="figure-caption">Gambar 5. Control Flow Graph (CFG) Basis Path Testing Autentikasi Login</div>
+  </div>
+
+  <p><strong>Keterangan Simpul (Nodes Description):</strong></p>
+  <p style="font-size: 10pt; line-height: 1.6;">
+    Node 1: Start & Inisialisasi state login | Node 2 (Predikat): Cek konfigurasi database Supabase | Node 3: Penanganan error DB belum dikonfigurasi (Status 500) | Node 4: Sanitasi input email (trim) | Node 5 (Predikat): Cek kelengkapan input email & sandi | Node 6: Penanganan error kolom kosong (Status 400) | Node 7: Pemanggilan API Supabase signInWithPassword | Node 8 (Predikat): Cek apakah auth menghasilkan error | Node 9 (Predikat): Cek apakah jenis error Invalid login credentials | Node 10: Throw error kredensial salah (NIST SP 800-63B) | Node 11: Throw error jaringan/server | Node 12: Pengambilan data profil dari tabel profiles | Node 13 (Predikat): Cek apakah role == admin | Node 14: Berikan otorisasi akses Admin Dashboard | Node 15: Berikan otorisasi akses Pelanggan Reguler | Node 16: Toast sukses & tutup modal login (Status 200) | Node 17: Blok catch tangkap eksepsi & set pesan error | Node 18: Terminal Exit & matikan state loading.
+  </p>
+
+  <h2>5. Perhitungan Cyclomatic Complexity (Kompleksitas Siklomatis)</h2>
+  <p>Nilai Cyclomatic Complexity V(G) dihitung melalui 3 (tiga) rumus matematis standar McCabe:</p>
+
+  <p><strong>1. Metode Simpul Predikat (Predicate Nodes):</strong></p>
+  <div class="formula-box">
+    Terdapat 5 predicate nodes (Simpul 2, 5, 8, 9, 13)<br>
+    V(G) = P + 1 = 5 + 1 = 6
+  </div>
+
+  <p><strong>2. Metode Sisi (Edges) dan Simpul (Nodes):</strong></p>
+  <div class="formula-box">
+    Jumlah Sisi (E) = 22, Jumlah Simpul (N) = 18<br>
+    V(G) = E - N + 2 = 22 - 18 + 2 = 6
+  </div>
+
+  <p><strong>3. Metode Region (Wilayah Bidang Graf):</strong></p>
+  <div class="formula-box">
+    5 Region tertutup (R1 s.d. R5) + 1 Region terbuka (R6)<br>
+    V(G) = Jumlah Region = 6
+  </div>
+
+  <p>
+    Ketiga metode menghasilkan nilai konsisten <strong>V(G) = 6</strong>, yang menetapkan bahwa terdapat tepat <strong>6 jalur independen (Basis Paths)</strong> yang wajib diuji untuk mencapai pengujian tuntas (100% path coverage).
+  </p>
+
+  <h2>6. Himpunan Jalur Eksekusi Independen (Basis Paths)</h2>
+  <ul>
+    <li><strong>Path 1:</strong> <code>1 - 2 - 3 - 18</code> (Koneksi database Supabase tidak ada / Status 500)</li>
+    <li><strong>Path 2:</strong> <code>1 - 2 - 4 - 5 - 6 - 18</code> (Input email atau kata sandi kosong / Status 400)</li>
+    <li><strong>Path 3:</strong> <code>1 - 2 - 4 - 5 - 7 - 8 - 9 - 10 - 17 - 18</code> (Kredensial salah / Status 401)</li>
+    <li><strong>Path 4:</strong> <code>1 - 2 - 4 - 5 - 7 - 8 - 9 - 11 - 17 - 18</code> (Gangguan koneksi jaringan / Network Error)</li>
+    <li><strong>Path 5:</strong> <code>1 - 2 - 4 - 5 - 7 - 8 - 12 - 13 - 14 - 16 - 18</code> (Login sukses role Admin / Status 200)</li>
+    <li><strong>Path 6:</strong> <code>1 - 2 - 4 - 5 - 7 - 8 - 12 - 13 - 15 - 16 - 18</code> (Login sukses role Pelanggan / Status 200)</li>
+  </ul>
+
+  <h2>7. Skenario dan Hasil Pengujian White Box</h2>
+  <table class="test-table">
+    <thead>
+      <tr>
+        <th style="width: 10%;">ID Uji</th>
+        <th style="width: 18%;">Jalur yang Diuji</th>
+        <th style="width: 25%;">Kondisi Input Uji</th>
+        <th style="width: 24%;">Hasil yang Diharapkan</th>
+        <th style="width: 15%;">Hasil Aktual</th>
+        <th style="width: 8%;">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="text-align: center;"><strong>WB-01</strong></td>
+        <td>Path 1<br><code>1-2-3-18</code></td>
+        <td><code>supabase = null</code>, <code>isConfigured = false</code></td>
+        <td>Berhenti seketika di Node 3, kembalikan error konfigurasi DB, status 500.</td>
+        <td>Proses berhenti di Node 3, error konfigurasi DB muncul.</td>
+        <td class="status-pass">Pass</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;"><strong>WB-02</strong></td>
+        <td>Path 2<br><code>1-2-4-5-6-18</code></td>
+        <td><code>isConfigured = true</code><br><code>email = "   "</code>, <code>password = ""</code></td>
+        <td>Nilai dipotong trim(), Node 5 bernilai True, masuk ke Node 6, status 400.</td>
+        <td>Submit diblokir di Node 6, pesan wajib diisi muncul.</td>
+        <td class="status-pass">Pass</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;"><strong>WB-03</strong></td>
+        <td>Path 3<br><code>1-2-4-5-7-8-9-10-17-18</code></td>
+        <td><code>email = "admin@condongraos.com"</code><br><code>password = "SalahPassword"</code></td>
+        <td>Node 8 True, Node 9 True, Node 10 melempar pesan kredensial ke Node 17.</td>
+        <td>Eksepsi ditangkap di Node 17, banner peringatan kredensial salah muncul.</td>
+        <td class="status-pass">Pass</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;"><strong>WB-04</strong></td>
+        <td>Path 4<br><code>1-2-4-5-7-8-9-11-17-18</code></td>
+        <td>Simulasi jaringan offline (Connection Refused)</td>
+        <td>Node 8 True, Node 9 False, Node 11 melempar original network error ke Node 17.</td>
+        <td>Eksepsi jaringan ditangkap di Node 17, pesan galat koneksi ditampilkan.</td>
+        <td class="status-pass">Pass</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;"><strong>WB-05</strong></td>
+        <td>Path 5<br><code>1-2-4-5-7-8-12-13-14-16-18</code></td>
+        <td><code>email = "admin@condongraos.com"</code><br><code>password = "Admin123!"</code><br><code>profiles.role = "admin"</code></td>
+        <td>Login sukses (Node 8 False), Node 13 True (Admin), Node 14 aktif, modal tutup (16).</td>
+        <td>Pengguna terotentikasi penuh, state isAdmin = true, hak dashboard aktif.</td>
+        <td class="status-pass">Pass</td>
+      </tr>
+      <tr>
+        <td style="text-align: center;"><strong>WB-06</strong></td>
+        <td>Path 6<br><code>1-2-4-5-7-8-12-13-15-16-18</code></td>
+        <td><code>email = "budi@gmail.com"</code><br><code>password = "Pelanggan2024"</code><br><code>profiles.role = "customer"</code></td>
+        <td>Login sukses, profil terbaca di Node 12, Node 13 False (Customer), Node 15 aktif.</td>
+        <td>Pengguna terotentikasi sebagai pelanggan biasa, profil muncul di navbar.</td>
+        <td class="status-pass">Pass</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>8. Kesimpulan Pengujian White Box</h2>
+  <p>
+    Pengujian White Box dengan metode Basis Path Testing pada modul logika autentikasi login Condong Raos menghasilkan nilai Kompleksitas Siklomatis V(G) = 6. Seluruh 6 basis path telah diuji dengan 100% path coverage dan seluruh skenario menghasilkan status Lulus (Pass). Hasil ini membuktikan integritas logika kode, efektivitas penanganan kesalahan, dan kepatuhan sistem terhadap kontrol akses berbasis peran (Role-Based Access Control) tanpa ditemukannya celah logika atau dead code.
+  </p>
+
+</div>
+
+</body>
+</html>

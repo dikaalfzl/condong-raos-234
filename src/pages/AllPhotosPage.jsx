@@ -9,9 +9,13 @@ import {
 import { supabase, isSupabaseConfigured } from '../lib/supabaseClient';
 import { useAuth } from '../context/AuthContext';
 import { defaultLocationPhotos } from '../components/sections/MapsSection';
+import { useBackButton } from '../hooks/useBackButton';
 import '../styles/AllPhotosPage.css';
 
 export default function AllPhotosPage({ onBack }) {
+  // Tangkap tombol Back HP agar kembali ke halaman utama
+  useBackButton(true, onBack);
+
   const { user, isAdmin, showToast } = useAuth();
   const [customerPhotos, setCustomerPhotos] = useState([]);
   const [loading, setLoading] = useState(true);

@@ -9,6 +9,7 @@ import {
 import { supabase, isSupabaseConfigured } from '../lib/supabaseClient';
 import { useAuth } from '../context/AuthContext';
 import { slides as defaultSlides } from '../data/menuData';
+import { useBackButton } from '../hooks/useBackButton';
 
 import MenuTab from '../components/admin/MenuTab';
 import SwiperTab from '../components/admin/SwiperTab';
@@ -23,6 +24,9 @@ export default function AdminDashboard({ isOpen, onClose, onDataUpdated }) {
   const [menus, setMenus] = useState([]);
   const [heroSlides, setHeroSlides] = useState([]);
   const [reviews, setReviews] = useState([]);
+
+  // Tangkap tombol Back HP agar kembali ke tampilan utama
+  useBackButton(isOpen, onClose);
 
   const fetchAllAdminData = useCallback(async () => {
     if (!isSupabaseConfigured || !supabase) return;

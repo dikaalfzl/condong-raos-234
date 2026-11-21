@@ -9,6 +9,7 @@ import {
   FiCheck,
 } from 'react-icons/fi';
 import { supabase, isSupabaseConfigured } from '../lib/supabaseClient';
+import { useBackButton } from '../hooks/useBackButton';
 import '../styles/AllReviewsPage.css';
 
 const KATEGORI_FILTER = [
@@ -28,6 +29,9 @@ const STAR_OPTIONS = [
 ];
 
 export default function AllReviewsPage({ onBack }) {
+  // Tangkap tombol Back HP agar kembali ke halaman utama
+  useBackButton(true, onBack);
+
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
 
